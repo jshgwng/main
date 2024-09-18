@@ -63,4 +63,9 @@ export const navItems: NavItem[] = [
     iconName: 'aperture',
     route: '/extra/sample-page',
   },
+  {
+    displayName: 'Report Accident',
+    iconName: 'aperture',
+    route: '/extra/report-accident',
+  },
 ];
