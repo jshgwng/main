@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/authentication/login',  // Change this to your login route
         pathMatch: 'full',
       },
       {
@@ -45,6 +45,11 @@ const routes: Routes = [
       },
     ],
   },
+  // Optionally, add a wildcard route to handle unknown paths
+  {
+    path: '**',
+    redirectTo: '/authentication/login',
+  }
 ];
 
 @NgModule({

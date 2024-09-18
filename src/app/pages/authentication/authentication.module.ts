@@ -7,6 +7,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // icons
 import { TablerIconsModule } from 'angular-tabler-icons';
@@ -26,6 +27,7 @@ import { AppSideRegisterComponent } from './register/register.component';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
