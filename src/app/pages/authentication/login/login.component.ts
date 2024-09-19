@@ -29,7 +29,7 @@ export class AppSideLoginComponent {
           if (res.status === 200) {
             
             this.router.navigateByUrl('/dashboard')
-            alert('Login Success');
+           // alert('Login Success');
           } else {
             // If not 200, print the response body
             alert('Error: ' + res.body.message);
