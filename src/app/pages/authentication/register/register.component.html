@@ -6,12 +6,15 @@
       <mat-card class="cardWithShadow boxed-auth">
         <mat-card-content class="p-32">
           <div class="text-center">
-            <a [routerLink]="['/dashboard']">
-              <img
-                src="./assets/images/logos/dark-logo.svg"
+            <a [routerLink]="['/dashboard']" class="d-flex flex-column align-items-center justify-content-center" style="text-decoration: none;">
+              <!-- <img
+                src="/assets/images/logos/uialogo.png"
                 class="align-middle m-2"
                 alt="logo"
-              />
+                style="height: 40px;" 
+              /> -->
+              <span class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #003366;">UIA Accident Portal</span>
+
             </a>
           </div>
 
@@ -50,31 +53,34 @@
           <div class="or-border m-t-30">or sign up with</div>
 
           <form class="m-t-30">
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Name</mat-label
-            >
+            <!-- Full Name -->
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Full Name</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput />
+              <input matInput [(ngModel)]="userRegistrationObj.fullName" placeholder="Full Name" name="fullName" />
             </mat-form-field>
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Email Adddress</mat-label
-            >
+          
+            <!-- Email Address -->
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Email Address</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="email" />
+              <input matInput [(ngModel)]="userRegistrationObj.email" placeholder="Email Address" type="email" name="email" />
             </mat-form-field>
-            <!-- password -->
-            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-              >Password</mat-label
-            >
+          
+            <!-- Phone Number -->
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Phone Number</mat-label>
             <mat-form-field appearance="outline" class="w-100" color="primary">
-              <input matInput type="password" />
+              <input matInput [(ngModel)]="userRegistrationObj.phoneNumber" placeholder="Phone Number" type="tel" name="phoneNumber" />
             </mat-form-field>
-
-            <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
-              Sign Up
-            </a>
-            <!-- input -->
+          
+            <!-- Password -->
+            <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Password</mat-label>
+            <mat-form-field appearance="outline" class="w-100" color="primary">
+              <input matInput [(ngModel)]="userRegistrationObj.password" placeholder="Password" type="password" name="password" />
+            </mat-form-field>
+          
+            <!-- Sign Up Button -->
+            <a (click)="onSignUp()" mat-flat-button color="primary" class="w-100">Sign Up</a>
           </form>
+          
           <span class="d-block f-w-500 text-center m-t-24"
             >Already have an Account?
 
