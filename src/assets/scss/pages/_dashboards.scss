@@ -1,113 +1,261 @@
-// theme select
+// Theme select
 .theme-select {
   width: 125px;
   height: 36px;
+
   .mat-form-field-infix {
     padding: 6px 0 1px !important;
   }
+
   .mat-mdc-form-field-subscript-wrapper {
     display: none;
   }
+
   .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__leading {
     border-top-left-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
     border-color: $borderColor;
   }
-  .mdc-text-field--outlined
-    .mdc-notched-outline
-    .mdc-notched-outline__trailing {
+
+  .mdc-text-field--outlined .mdc-notched-outline .mdc-notched-outline__trailing {
     border-top-right-radius: $border-radius;
     border-bottom-right-radius: $border-radius;
     border-color: $borderColor;
   }
+
   .mat-mdc-form-field-flex {
     height: 36px;
     align-items: center;
   }
+
+  // Responsive styles
+  @media (max-width: 600px) {
+    width: 100%;
+    .mat-form-field-infix {
+      padding: 4px 0 !important;
+    }
+  }
 }
 
+// Accident reporting timeline
 .timeline {
   position: relative;
+
   .timeline-item {
     position: relative;
-    height: 70px;
+    height: 80px; // Increased height to accommodate accident details
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; // Allow wrapping on smaller screens
+
     .time {
       padding: 6px 16px 6px 0;
-      min-width: 90px;
+      min-width: 100px; // Increased min-width for better readability
       flex-shrink: 0;
+      font-weight: bold;
     }
+
     .desc {
       padding: 6px 16px;
+      flex-grow: 1;
+      flex-basis: 100%; // Make description take full width on small screens
     }
-    .timline-border {
-      width: 1px;
+
+    .timeline-border {
+      width: 2px; // Slightly wider border for better visibility
       height: 100%;
       background-color: $borderColor;
       flex-shrink: 0;
     }
 
     &:last-child {
-      height: 25px;
+      height: 40px; // Adjusted height for the last item
     }
+
     .point {
+      display: flex;
       flex-direction: column;
+
       .timeline-badge {
-        width: 12px;
-        height: 12px;
-        border-radius: 50px;
+        width: 14px; // Slightly larger badge for visibility
+        height: 14px;
+        border-radius: 50%;
         background-color: transparent;
         flex-shrink: 0;
+
         &.border-primary {
           border: 2px solid $primary !important;
         }
+
         &.border-accent {
           border: 2px solid $accent !important;
         }
+
         &.border-success {
           border: 2px solid $success;
         }
+
         &.border-warning {
           border: 2px solid $warning;
         }
+
         &.border-error {
           border: 2px solid $error;
         }
       }
 
       .timeline-border {
-        width: 1px;
+        width: 2px; // Match the badge width for consistency
         height: 100%;
         background-color: $borderColor;
         flex-shrink: 0;
       }
     }
+
     &:last-child {
       .timeline-border {
         display: none !important;
       }
     }
   }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    .timeline-item {
+      height: auto; // Allow height to adjust based on content
+    }
+  }
 }
 
+// User category section
 .user-category {
   margin-top: -45px;
   z-index: 1;
   position: relative;
+
+  @media (max-width: 768px) {
+    margin-top: 0; // Adjust margin on smaller screens
+  }
 }
 
+// Card overlay section
 .card-overlay {
   position: absolute;
   top: 0;
   width: 100%;
   height: 242px;
+
+  @media (max-width: 768px) {
+    height: 200px; // Adjust height on smaller screens
+  }
 }
 
+// Text decoration
 .text-decoration-line-through {
   text-decoration: line-through;
 }
 
+// Cart button
 .cart-btn {
   position: absolute !important;
   right: 16px;
   top: -21px;
+
+  @media (max-width: 768px) {
+    right: 8px; // Adjust position on smaller screens
+    top: -10px;
+  }
+}
+
+// Accident report table
+// Accident report table
+.accident-report-table {
+  width: 100%;
+  margin-top: 20px;
+
+  .mat-table-container {
+    max-height: 500px; /* Adjust the height as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: auto; /* Enable horizontal scrolling */
+  }
+
+  .mat-table {
+    border-collapse: collapse;
+    width: 100%;
+
+    .mat-header-cell {
+      background-color: #3f51b5; /* Primary color */
+      color: #fff;
+      font-weight: bold;
+      text-align: left;
+      padding: 12px;
+    }
+
+    .mat-cell {
+      padding: 12px;
+      border-bottom: 1px solid #ddd; /* Light border color */
+      text-align: left;
+    }
+
+    .mat-header-cell, .mat-cell {
+      font-size: 14px;
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 600px) {
+    .mat-cell {
+      padding: 8px; // Reduce padding on smaller screens
+    }
+
+    .mat-header-cell {
+      font-size: 12px; // Reduce font size on smaller screens
+    }
+  }
+}
+/* Container for the table */
+.table-container {
+  max-height: 500px; /* Adjust the height as needed for vertical scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  width: 100%; /* Ensure the container takes the full width */
+}
+
+// Container for the table to ensure scrollability and proper display
+.table-container {
+  width: 100%;
+  overflow-x: auto;  // Enable horizontal scrolling if needed
+  overflow-y: auto;  // Enable vertical scrolling if needed
+}
+
+// Table styling
+.table-container table {
+  width: auto;  // Adjust width to fit content
+  margin: 0;    // Remove default margin
+}
+
+// Table header and cells
+.table-container .mat-header-cell,
+.table-container .mat-cell {
+  font-size: 14px;   // Smaller font size for table content
+  padding: 8px;      // Reduced padding for smaller table
+}
+
+// Table header styling
+.table-container .mat-header-cell {
+  background-color: $primary;
+  color: #fff;
+  font-weight: bold;
+}
+
+// Table cell borders
+.table-container .mat-cell {
+  border-bottom: 1px solid $borderColor;  // Border color for table rows
+}
+
+// Responsive styles
+@media (max-width: 600px) {
+  .table-container .mat-cell {
+    padding: 6px;  // Reduce padding on smaller screens
+  }
 }
