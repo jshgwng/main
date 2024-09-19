@@ -6,14 +6,18 @@
       <mat-card class="cardWithShadow boxed-auth">
         <mat-card-content class="p-32">
           <div class="text-center">
-            <a [routerLink]="['/dashboard']">
-              <img
-                src="./assets/images/logos/dark-logo.svg"
+            <a [routerLink]="['/dashboard']" class="d-flex flex-column align-items-center justify-content-center" style="text-decoration: none;">
+              <!-- <img
+                src="/assets/images/logos/uialogo.png"
                 class="align-middle m-2"
                 alt="logo"
-              />
+                style="height: 40px;" 
+              /> -->
+              <span class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #003366;">UIA Accident Portal</span>
+
             </a>
           </div>
+          
 
           <div class="row m-t-24 custom-row">
             <div class="col-12 col-sm-6">
@@ -62,24 +66,24 @@
               <input matInput [(ngModel)]="loginObj.password" placeholder="Password" type="password" name="password" />
             </mat-form-field>
           
-            <div class="d-flex align-items-center m-b-12">
+            <!-- <div class="d-flex align-items-center m-b-12">
               <mat-checkbox color="primary">Remember this Device</mat-checkbox>
               <a
                 [routerLink]="['/']"
                 class="text-primary f-w-600 text-decoration-none m-l-auto f-s-14"
                 >Forgot Password ?</a>
-            </div>
+            </div> -->
           
             <a (click)="onLogin()" mat-flat-button color="primary" class="w-100">Sign In</a>
           </form>
           
           <span class="d-block f-w-500 text-center m-t-24"
-            >New to Modernize?
+            >New to Accident reporting?
             <a
               [routerLink]="['/authentication/register']"
               class="text-decoration-none text-primary f-w-500 f-s-14"
             >
-              Create an account</a
+                 Create an account</a
             >
           </span>
         </mat-card-content>

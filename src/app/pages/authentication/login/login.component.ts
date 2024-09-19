@@ -32,14 +32,16 @@ export class AppSideLoginComponent {
             alert('Login Success');
           } else {
             // If not 200, print the response body
-            alert('Error: ' + JSON.stringify(res.body));
+            alert('Error: ' + res.body.message);
+
           }
         },
         (error) => {
           console.error('There was an error!', error);
           // Display the error response body
           if (error.error) {
-            alert('Error: ' + JSON.stringify(error.error));
+            alert(error.error.message);
+
           } else {
             alert('An error occurred. Please try again.');
           }

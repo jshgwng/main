@@ -39,7 +39,7 @@ export class AppSideRegisterComponent {
           console.error('There was an error!', error);
           // Display the error response body
           if (error.error) {
-            alert('Error: ' + JSON.stringify(error.error));
+            alert(error.error.message);
           } else {
             alert('An error occurred. Please try again.');
           }
