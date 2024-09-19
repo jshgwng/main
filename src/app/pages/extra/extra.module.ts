@@ -12,7 +12,14 @@ import { ExtraRoutes } from './extra.routing';
 import { AppIconsComponent } from './icons/icons.component';
 import { AppSamplePageComponent } from './sample-page/sample-page.component';
 import { AppReportAccidentPage } from './report-accident/report-accident.component';
+import { DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule } from 'ngx-dropzone-wrapper';
 
+const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+  // Change this to your upload POST address:
+   url: 'https://httpbin.org/post',
+   maxFilesize: 50,
+   acceptedFiles: 'image/*'
+ };
 
 @NgModule({
   imports: [
@@ -22,6 +29,13 @@ import { AppReportAccidentPage } from './report-accident/report-accident.compone
     FormsModule,
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
+    DropzoneModule
+  ],
+  providers: [
+    {
+      provide: DROPZONE_CONFIG,
+      useValue: DEFAULT_DROPZONE_CONFIG
+    }
   ],
   declarations: [
     AppIconsComponent,

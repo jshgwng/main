@@ -1,6 +1,106 @@
 <mat-card class="cardWithShadow">
   <mat-card-content>
-    <mat-card-title>Sample Page</mat-card-title>
-    <mat-card-subtitle class="mat-body-1">This is test page</mat-card-subtitle>
+    <mat-card-title>Report Accident</mat-card-title>
+    <!-- <mat-card-subtitle class="mat-body-1">This is test page</mat-card-subtitle> -->
+    <form class="m-t-30">
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Location *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input
+          type="text"
+          matInput
+          [matAutocomplete]="auto"
+          placeholder="Select an option"
+        />
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Description *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <textarea matInput></textarea>
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Severity *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <mat-select>
+          @for (severity of severities; track severity) {
+          <mat-option [value]="severity.value">{{
+            severity.viewValue
+          }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Status *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <!-- <mat-label>Status *</mat-label> -->
+        <mat-select>
+          @for (status of statuses; track status) {
+          <mat-option [value]="status.value">{{ status.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Date of Accident *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Upload file *</mat-label
+      >
+
+      <dropzone
+        class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        [config]="config"
+        [message]="'Click or drag images here to upload'"
+        (error)="onUploadError($event)"
+        (success)="onUploadSuccess($event)"
+      ></dropzone>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Insurer</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <mat-select>
+          @for (insurer of insurers; track insurer) {
+          <mat-option [value]="insurer.value">{{
+            insurer.viewValue
+          }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Claim Reference No</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Policy Reference No</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+      <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
+        Submit
+      </a>
+    </form>
   </mat-card-content>
 </mat-card>
