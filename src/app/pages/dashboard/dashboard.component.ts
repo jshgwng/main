@@ -55,7 +55,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: 'ABC Insurance',
     policyId: 'POL78910',
     dateOfAccident: '2024-09-15',
-    mediaUrl: 'https://example.com/images/accident2.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/1230677/pexels-photo-1230677.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
     id: 3,
@@ -67,7 +67,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: 'XYZ Insurance',
     policyId: 'POL32198',
     dateOfAccident: '2024-09-10',
-    mediaUrl: 'https://example.com/images/accident3.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/3368844/pexels-photo-3368844.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
     id: 4,
@@ -79,7 +79,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: '123 Insurance',
     policyId: 'POL77654',
     dateOfAccident: '2024-09-05',
-    mediaUrl: 'https://example.com/images/accident4.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/48125/firefighter-extinguish-fire-extinction-48125.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
     id: 5,
@@ -91,7 +91,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: null,
     policyId: null,
     dateOfAccident: '2024-09-01',
-    mediaUrl: 'https://example.com/images/accident5.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/5351111/pexels-photo-5351111.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
 ];
 

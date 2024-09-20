@@ -5,6 +5,7 @@ import { AppIconsComponent } from './icons/icons.component';
 import { AppSamplePageComponent } from './sample-page/sample-page.component';
 import { AppReportAccidentPage } from './report-accident/report-accident.component';
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
+import { AppReportDetailComponent } from './report-detail/report-detail.component';
 
 export const ExtraRoutes: Routes = [
   {
@@ -25,6 +26,10 @@ export const ExtraRoutes: Routes = [
       {
         path: 'accident-reports',
         component: AppAccidentReportsComponent,
+      },
+      {
+        path: 'report-details/:id',
+        component: AppReportDetailComponent,
       },
     ],
   },
