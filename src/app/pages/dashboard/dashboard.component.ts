@@ -35,7 +35,7 @@ export interface AccidentReport {
 export const ACCIDENT_DATA: AccidentReport[] = [
   {
     id: 1,
-    location: '0.326355816638031, 32.60958535357119',
+    location: 'MEDICAL QUARTERS, TESO   A, ADYEL, LIRA',
     description: 'Vehicle hit by a motorcycle trying to overtake on the wrong side',
     severity: 'minor',
     status: 'pending',
@@ -47,7 +47,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
   },
   {
     id: 2,
-    location: '0.326355816638031, 32.60958535357120',
+    location: 'RWANDET, KAPTEKA, CHESOWER, BUKWO',
     description: 'Rear-end collision at a traffic signal',
     severity: 'moderate',
     status: 'investigating',
@@ -59,7 +59,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
   },
   {
     id: 3,
-    location: '0.326355816638031, 32.60958535357121',
+    location: 'KITAMBARA, KIDOMA, KIZIRANFUMBI, KIKUUBE',
     description: 'Side collision at an intersection',
     severity: 'severe',
     status: 'resolved',
@@ -71,7 +71,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
   },
   {
     id: 4,
-    location: '0.326355816638031, 32.60958535357122',
+    location: 'SAGAZI  B, MEERU, NABITANGA, SSEMBABULE',
     description: 'Vehicle skidded on a wet road and crashed into a roadside barrier',
     severity: 'moderate',
     status: 'closed',
@@ -83,7 +83,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
   },
   {
     id: 5,
-    location: '0.326355816638031, 32.60958535357123',
+    location: 'LUBIRI, KIBUYE II, MAKINDYE DIVISION, KAMPALA',
     description: 'Single vehicle accident due to driver fatigue',
     severity: 'minor',
     status: 'pending',
