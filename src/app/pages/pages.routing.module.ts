@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AppDashboardComponent } from './dashboard/dashboard.component';
-import { ReportDetailComponent } from './report-detail/report-detail.component'; // Import the new component
+import { ReportDetailComponent } from './extra/report-detail/report-detail.component'; // Import the new component
 
 export const PagesRoutes: Routes = [
   {

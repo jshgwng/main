@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AccidentReport, ACCIDENT_DATA } from '../dashboard/dashboard.component'; // Adjust the path as needed
+import { AccidentReport, ACCIDENT_DATA } from '../../dashboard/dashboard.component'; // Adjust the path as needed
 
 @Component({
   selector: 'app-report-detail',
