@@ -14,6 +14,7 @@ import { AppSamplePageComponent } from './sample-page/sample-page.component';
 import { AppReportAccidentPage } from './report-accident/report-accident.component';
 import { DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule } from 'ngx-dropzone-wrapper';
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
+import { AppReportDetailComponent } from './report-detail/report-detail.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -45,7 +46,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     AppSamplePageComponent,
     AppReportAccidentPage,
     AppAccidentReportsComponent,
-   
+    AppReportDetailComponent
   ],
 })
 export class ExtraModule {}

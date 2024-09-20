@@ -36,7 +36,7 @@ export interface AccidentReport {
 export const ACCIDENT_DATA: AccidentReport[] = [
   {
     id: 1,
-    location: '0.326355816638031, 32.60958535357119',
+    location: 'MEDICAL QUARTERS, TESO   A, ADYEL, LIRA',
     description: 'Vehicle hit by a motorcycle trying to overtake on the wrong side',
     severity: 'minor',
     status: 'pending',
@@ -48,7 +48,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
   },
   {
     id: 2,
-    location: '0.326355816638031, 32.60958535357120',
+    location: 'RWANDET, KAPTEKA, CHESOWER, BUKWO',
     description: 'Rear-end collision at a traffic signal',
     severity: 'moderate',
     status: 'investigating',
@@ -56,11 +56,11 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: 'ABC Insurance',
     policyId: 'POL78910',
     dateOfAccident: '2024-09-15',
-    mediaUrl: 'https://example.com/images/accident2.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/1230677/pexels-photo-1230677.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
     id: 3,
-    location: '0.326355816638031, 32.60958535357121',
+    location: 'KITAMBARA, KIDOMA, KIZIRANFUMBI, KIKUUBE',
     description: 'Side collision at an intersection',
     severity: 'severe',
     status: 'resolved',
@@ -68,11 +68,11 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: 'XYZ Insurance',
     policyId: 'POL32198',
     dateOfAccident: '2024-09-10',
-    mediaUrl: 'https://example.com/images/accident3.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/3368844/pexels-photo-3368844.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
     id: 4,
-    location: '0.326355816638031, 32.60958535357122',
+    location: 'SAGAZI  B, MEERU, NABITANGA, SSEMBABULE',
     description: 'Vehicle skidded on a wet road and crashed into a roadside barrier',
     severity: 'moderate',
     status: 'closed',
@@ -80,11 +80,11 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: '123 Insurance',
     policyId: 'POL77654',
     dateOfAccident: '2024-09-05',
-    mediaUrl: 'https://example.com/images/accident4.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/48125/firefighter-extinguish-fire-extinction-48125.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
   {
     id: 5,
-    location: '0.326355816638031, 32.60958535357123',
+    location: 'LUBIRI, KIBUYE II, MAKINDYE DIVISION, KAMPALA',
     description: 'Single vehicle accident due to driver fatigue',
     severity: 'minor',
     status: 'pending',
@@ -92,7 +92,7 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: null,
     policyId: null,
     dateOfAccident: '2024-09-01',
-    mediaUrl: 'https://example.com/images/accident5.jpg'
+    mediaUrl: 'https://images.pexels.com/photos/5351111/pexels-photo-5351111.jpeg?auto=compress&cs=tinysrgb&w=600'
   },
 ];
 

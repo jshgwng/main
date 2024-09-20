@@ -7,7 +7,7 @@ import { AccidentReport, ACCIDENT_DATA } from '../../dashboard/dashboard.compone
   templateUrl: './report-detail.component.html',
   styleUrls: ['./report-detail.component.scss']
 })
-export class ReportDetailComponent implements OnInit {
+export class AppReportDetailComponent implements OnInit {
   report: AccidentReport | undefined;
 
   constructor(private route: ActivatedRoute) { }
