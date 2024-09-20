@@ -7,6 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { timeout } from 'rxjs';
 
@@ -24,9 +25,12 @@ export class HeaderComponent {
 
   showFiller = false;
 
-  constructor(public dialog: MatDialog,private service:NotificationsService) {}
+  constructor(public dialog: MatDialog,private service:NotificationsService,private router: Router) {}
   notify(message: any){
      this.service.alert('New Accident',message,{position:['top','right'],timeout:200,animate:'fade',showProgressBar:true})
 
+  }
+  navigateToProfile() {
+    this.router.navigate(['extra/profile']);
   }
 }

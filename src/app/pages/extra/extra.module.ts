@@ -16,6 +16,9 @@ import { DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule } from 'ngx-dr
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
 import { AppReportDetailComponent } from './report-detail/report-detail.component';
 import { AccidentReportDialogComponent } from './report-detail/accident-report-dialog/accident-report-dialog.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -31,6 +34,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     RouterModule.forChild(ExtraRoutes),
     MaterialModule,
     FormsModule,
+    MatDividerModule,  
+    MatListModule,   
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
     DropzoneModule,
@@ -47,7 +52,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     AppSamplePageComponent,
     AppReportAccidentPage,
     AppAccidentReportsComponent,
-    AppReportDetailComponent
+    AppReportDetailComponent,
+    UserProfileComponent,
   ],
 })
 export class ExtraModule {}

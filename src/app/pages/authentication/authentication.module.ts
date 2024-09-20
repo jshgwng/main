@@ -6,6 +6,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,6 +19,7 @@ import { AuthenticationRoutes } from './authentication.routing';
 
 import { AppSideLoginComponent } from './login/login.component';
 import { AppSideRegisterComponent } from './register/register.component';
+import { UserProfileComponent } from '../extra/user-profile/user-profile.component'; // Import UserProfileComponent
 
 @NgModule({
   imports: [
@@ -27,6 +30,7 @@ import { AppSideRegisterComponent } from './register/register.component';
     MatInputModule,
     MatCheckboxModule,
     MatButtonModule,
+   
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
@@ -35,6 +39,7 @@ import { AppSideRegisterComponent } from './register/register.component';
   declarations: [
     AppSideLoginComponent,
     AppSideRegisterComponent,
+     // Declare UserProfileComponent
   ],
 })
 export class AuthenticationModule {}

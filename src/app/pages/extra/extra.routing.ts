@@ -6,6 +6,7 @@ import { AppSamplePageComponent } from './sample-page/sample-page.component';
 import { AppReportAccidentPage } from './report-accident/report-accident.component';
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
 import { AppReportDetailComponent } from './report-detail/report-detail.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 export const ExtraRoutes: Routes = [
   {
@@ -30,6 +31,10 @@ export const ExtraRoutes: Routes = [
       {
         path: 'report-details/:id',
         component: AppReportDetailComponent,
+      },
+      {
+        path: 'profile',  
+        component: UserProfileComponent,
       },
     ],
   },

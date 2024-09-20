@@ -1,0 +1,54 @@
+<mat-card>
+  <mat-card-header>
+    <div mat-card-avatar>
+      <img [src]="user.profilePhoto" class="profile-image" alt="Profile Photo" />
+    </div>
+    <mat-card-title>{{ user.name }}</mat-card-title>
+    <mat-card-subtitle>{{ user.email }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <h3>Personal Information</h3>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon matListIcon>phone</mat-icon>
+        <h4 matLine>Phone</h4>
+        <p matLine>{{ user.phone }}</p>  <!-- Check if this displays -->
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon matListIcon>home</mat-icon>
+        <h4 matLine>Address</h4>
+        <p matLine>{{ user.address }}</p>  <!-- Check if this displays -->
+      </mat-list-item>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <h3>Insurance Information</h3>
+    <mat-list>
+      <mat-list-item>
+        <mat-icon matListIcon>assignment</mat-icon>
+        <h4 matLine>Provider</h4>
+        <p matLine>{{ user.insurance.provider }}</p>  <!-- Check if this displays -->
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon matListIcon>description</mat-icon>
+        <h4 matLine>Policy Number</h4>
+        <p matLine>{{ user.insurance.policyNumber }}</p>  <!-- Check if this displays -->
+      </mat-list-item>
+
+      <mat-list-item>
+        <mat-icon matListIcon>event</mat-icon>
+        <h4 matLine>Expiration Date</h4>
+        <p matLine>{{ user.insurance.expirationDate }}</p>  <!-- Check if this displays -->
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-button color="primary">Edit Profile</button>
+    <button mat-button color="warn">Delete Profile</button>
+  </mat-card-actions>
+</mat-card>
