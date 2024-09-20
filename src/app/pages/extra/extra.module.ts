@@ -15,6 +15,7 @@ import { AppReportAccidentPage } from './report-accident/report-accident.compone
 import { DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule } from 'ngx-dropzone-wrapper';
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
 import { AppReportDetailComponent } from './report-detail/report-detail.component';
+import { AccidentReportDialogComponent } from './report-detail/accident-report-dialog/accident-report-dialog.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
