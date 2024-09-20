@@ -19,6 +19,38 @@
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >VIN *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Model *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Year of Manufacture *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Engine Capacity *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
+        >Registration No. *</mat-label
+      >
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput />
+      </mat-form-field>
+
       <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
         >Description *</mat-label
       >
@@ -98,7 +130,13 @@
       <mat-form-field appearance="outline" class="w-100" color="primary">
         <input matInput />
       </mat-form-field>
-      <a (click)="notify('Accident on masaka road...')"[routerLink]="['/dashboard']" mat-flat-button color="primary" class="w-100">
+      <a
+        (click)="notify('Accident on masaka road...')"
+        [routerLink]="['/dashboard']"
+        mat-flat-button
+        color="primary"
+        class="w-100"
+      >
         Submit
       </a>
     </form>

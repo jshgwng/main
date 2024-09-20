@@ -30,6 +30,11 @@ export interface AccidentReport {
   policyId: string | null;
   dateOfAccident: string;
   mediaUrl: string;
+  vin: string | null;
+  model: string | null;
+  yearOfManaufacture: string | null;
+  engineCapacity: string | null;
+  registrationNo: string | null;
 }
 
 // Sample data
@@ -37,14 +42,21 @@ export const ACCIDENT_DATA: AccidentReport[] = [
   {
     id: 1,
     location: 'MEDICAL QUARTERS, TESO   A, ADYEL, LIRA',
-    description: 'Vehicle hit by a motorcycle trying to overtake on the wrong side',
+    description:
+      'Vehicle hit by a motorcycle trying to overtake on the wrong side',
     severity: 'minor',
     status: 'pending',
     claimId: null,
     insurer: null,
     policyId: null,
     dateOfAccident: '2024-09-18',
-    mediaUrl: 'https://cdn.aarp.net/content/dam/aarpe/en/home/auto/driver-safety/what-to-do-after-car-accident/_jcr_content/root/container_main/container_body_main/container_body1/container_body_cf/container_image/articlecontentfragment/cfimage.coreimg.50.932.jpeg/content/dam/aarp/auto/2021/06/1140-car-crash.jpg'
+    mediaUrl:
+      'https://cdn.aarp.net/content/dam/aarpe/en/home/auto/driver-safety/what-to-do-after-car-accident/_jcr_content/root/container_main/container_body_main/container_body1/container_body_cf/container_image/articlecontentfragment/cfimage.coreimg.50.932.jpeg/content/dam/aarp/auto/2021/06/1140-car-crash.jpg',
+    vin: '1234',
+    model: 'Toyota',
+    yearOfManaufacture: '2023',
+    engineCapacity: '2L',
+    registrationNo: 'UBH 203H',
   },
   {
     id: 2,
@@ -56,7 +68,13 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: 'ABC Insurance',
     policyId: 'POL78910',
     dateOfAccident: '2024-09-15',
-    mediaUrl: 'https://images.pexels.com/photos/1230677/pexels-photo-1230677.jpeg?auto=compress&cs=tinysrgb&w=600'
+    mediaUrl:
+      'https://images.pexels.com/photos/1230677/pexels-photo-1230677.jpeg?auto=compress&cs=tinysrgb&w=600',
+    vin: '1234',
+    model: 'Toyota',
+    yearOfManaufacture: '2023',
+    engineCapacity: '2L',
+    registrationNo: 'UBH 203H',
   },
   {
     id: 3,
@@ -68,19 +86,32 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: 'XYZ Insurance',
     policyId: 'POL32198',
     dateOfAccident: '2024-09-10',
-    mediaUrl: 'https://images.pexels.com/photos/3368844/pexels-photo-3368844.jpeg?auto=compress&cs=tinysrgb&w=600'
+    mediaUrl:
+      'https://images.pexels.com/photos/3368844/pexels-photo-3368844.jpeg?auto=compress&cs=tinysrgb&w=600',
+    vin: '1234',
+    model: 'Toyota',
+    yearOfManaufacture: '2023',
+    engineCapacity: '2L',
+    registrationNo: 'UBH 203H',
   },
   {
     id: 4,
     location: 'SAGAZI  B, MEERU, NABITANGA, SSEMBABULE',
-    description: 'Vehicle skidded on a wet road and crashed into a roadside barrier',
+    description:
+      'Vehicle skidded on a wet road and crashed into a roadside barrier',
     severity: 'moderate',
     status: 'closed',
     claimId: 'CLM112233',
     insurer: '123 Insurance',
     policyId: 'POL77654',
     dateOfAccident: '2024-09-05',
-    mediaUrl: 'https://images.pexels.com/photos/48125/firefighter-extinguish-fire-extinction-48125.jpeg?auto=compress&cs=tinysrgb&w=600'
+    mediaUrl:
+      'https://images.pexels.com/photos/48125/firefighter-extinguish-fire-extinction-48125.jpeg?auto=compress&cs=tinysrgb&w=600',
+    vin: '1234',
+    model: 'Toyota',
+    yearOfManaufacture: '2023',
+    engineCapacity: '2L',
+    registrationNo: 'UBH 203H',
   },
   {
     id: 5,
@@ -92,7 +123,13 @@ export const ACCIDENT_DATA: AccidentReport[] = [
     insurer: null,
     policyId: null,
     dateOfAccident: '2024-09-01',
-    mediaUrl: 'https://images.pexels.com/photos/5351111/pexels-photo-5351111.jpeg?auto=compress&cs=tinysrgb&w=600'
+    mediaUrl:
+      'https://images.pexels.com/photos/5351111/pexels-photo-5351111.jpeg?auto=compress&cs=tinysrgb&w=600',
+    vin: '1234',
+    model: 'Toyota',
+    yearOfManaufacture: '2023',
+    engineCapacity: '2L',
+    registrationNo: 'UBH 203H',
   },
 ];
 
@@ -117,15 +154,21 @@ export interface accidentOverviewChart {
   encapsulation: ViewEncapsulation.None,
 })
 export class AppDashboardComponent {
-  
   @ViewChild('chart') chart: ChartComponent = Object.create(null);
 
   public accidentOverviewChart!: Partial<accidentOverviewChart> | any;
 
-  displayedColumns: string[] = ['id', 'location', 'description', 'severity', 'status', 'dateOfAccident'];
+  displayedColumns: string[] = [
+    'id',
+    'location',
+    'description',
+    'severity',
+    'status',
+    'dateOfAccident',
+  ];
   dataSource = ACCIDENT_DATA;
 
-  constructor(private router: Router,) {
+  constructor(private router: Router) {
     // Accident overview chart
     this.accidentOverviewChart = {
       series: [
