@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AccidentReport, ACCIDENT_DATA } from '../../dashboard/dashboard.component'; // Adjust the path as needed
+import { MatDialog } from '@angular/material/dialog';
+import { AccidentReportDialogComponent } from './accident-report-dialog/accident-report-dialog.component';
 
 @Component({
   selector: 'app-report-detail',
@@ -10,7 +12,11 @@ import { AccidentReport, ACCIDENT_DATA } from '../../dashboard/dashboard.compone
 export class AppReportDetailComponent implements OnInit {
   report: AccidentReport | undefined;
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,public dialog: MatDialog) { }
+
+  openDialog() {
+    this.dialog.open(AccidentReportDialogComponent);
+  }
 
   ngOnInit(): void {
     // Get the 'id' from the route parameters

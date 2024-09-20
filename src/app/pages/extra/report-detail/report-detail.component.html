@@ -1,23 +1,53 @@
 <mat-card class="cardWithShadow">
-    <mat-card-content class="p-24">
-      <mat-card-title>Accident Report Detail</mat-card-title>
-      <div class="m-t-24" *ngIf="report; else noReport">
-        <img [src]="report.mediaUrl" alt="Accident Image" class="img-fluid">
-        <h4 class="mat-headline-5 m-t-16">Description</h4>
-        <p class="mat-body-1">{{ report.description }}</p>
-  
-        <h4 class="mat-headline-5 m-t-16">Details</h4>
-        <p class="mat-body-1"><strong>Location:</strong> {{ report.location }}</p>
-        <p class="mat-body-1"><strong>Severity:</strong> {{ report.severity }}</p>
-        <p class="mat-body-1"><strong>Status:</strong> {{ report.status }}</p>
-        <p class="mat-body-1"><strong>Date of Accident:</strong> {{ report.dateOfAccident }}</p>
-        <p class="mat-body-1"><strong>Claim ID:</strong> {{ report.claimId || 'N/A' }}</p>
-        <p class="mat-body-1"><strong>Insurer:</strong> {{ report.insurer || 'N/A' }}</p>
-        <p class="mat-body-1"><strong>Policy ID:</strong> {{ report.policyId || 'N/A' }}</p>
-      </div>
-      <ng-template #noReport>
-        <p>No report available.</p>
-      </ng-template>
-    </mat-card-content>
-  </mat-card>
-  
+  <mat-card-content class="p-24">
+    <mat-card-title>Accident Report Detail</mat-card-title>
+    <div class="m-t-24" *ngIf="report; else noReport">
+      <img
+        [src]="report.mediaUrl"
+        alt="Accident Image"
+        class="img-fluid"
+        style="width: 250px"
+      />
+      <h4 class="mat-headline-5 m-t-16">Description</h4>
+      <p class="mat-body-1">{{ report.description }}</p>
+
+      <h4 class="mat-headline-5 m-t-16">Details</h4>
+      <p class="mat-body-1 m-t-8">
+        <strong>Location:</strong> {{ report.location }}
+      </p>
+      <p class="mat-body-1 m-t-8">
+        <strong>Severity:</strong>
+        <mat-chip>{{ report.severity }}</mat-chip>
+      </p>
+      <p class="mat-body-1 m-t-8">
+        <strong>Status:</strong> <mat-chip>{{ report.status }}</mat-chip>
+      </p>
+      <p class="mat-body-1 m-t-8">
+        <strong>Date of Accident:</strong>
+        {{ report.dateOfAccident | date : "dd/MM/yyyy" }}
+      </p>
+      <p class="mat-body-1 m-t-8">
+        <strong>Claim ID:</strong> {{ report.claimId || "N/A" }}
+      </p>
+      <p class="mat-body-1 m-t-8">
+        <strong>Insurer:</strong> {{ report.insurer || "N/A" }}
+      </p>
+      <p class="mat-body-1 m-t-8">
+        <strong>Policy ID:</strong> {{ report.policyId || "N/A" }}
+      </p>
+
+      <button
+        (click)="openDialog()"
+        mat-flat-button
+        color="primary"
+        class="m-t-8"
+        *ngIf="report.status !== 'closed'"
+      >
+        Check status with Insurance
+      </button>
+    </div>
+    <ng-template #noReport>
+      <p>No report available.</p>
+    </ng-template>
+  </mat-card-content>
+</mat-card>
