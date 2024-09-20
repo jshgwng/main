@@ -7,12 +7,12 @@
         <mat-card-content class="p-32">
           <div class="text-center">
             <a [routerLink]="['/dashboard']" class="d-flex flex-column align-items-center justify-content-center" style="text-decoration: none;">
-              <!-- <img
-                src="/assets/images/logos/uialogo.png"
+              <img
+                src="/assets/images/logos/smart-logo.svg"
                 class="align-middle m-2"
                 alt="logo"
-                style="height: 40px;" 
-              /> -->
+                style="height: 70px;" 
+              />
               <span class="mt-2" style="font-size: 1.5rem; font-weight: bold; color: #003366;">UIA Accident Portal</span>
 
             </a>
@@ -74,7 +74,8 @@
                 >Forgot Password ?</a>
             </div> -->
           
-            <a (click)="onLogin()" mat-flat-button color="primary" class="w-100">Sign In</a>
+            <a (click)="onLogin()" mat-flat-button class="w-100" [ngStyle]="{'background-color': '#8C3B42', 'color': 'white'}">Sign In</a>
+
           </form>
           
           <span class="d-block f-w-500 text-center m-t-24"

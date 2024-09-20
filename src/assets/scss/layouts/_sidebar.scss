@@ -36,15 +36,17 @@
         z-index: -1;
       }
 
-      &.activeMenu {
+      .menu-list-item.activeMenu {
+        background-color: #8C3B42 !important;
         .mdc-list-item__primary-text {
-          color: $white !important;
+          color: #8C3B42 !important;
         }
-
+      
         .mat-mdc-list-item-icon {
-          color: $white !important;
+          color: #8C3B42 !important;
         }
       }
+      
 
       .mdc-list-item__start {
         margin-right: 14px;
