@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+
 
 // icons
 import { TablerIconsModule } from 'angular-tabler-icons';
@@ -43,6 +45,9 @@ import { AppNavItemComponent } from './layouts/full/sidebar/nav-item/nav-item.co
     ReactiveFormsModule,
     MaterialModule,
     TablerIconsModule.pick(TablerIcons),
+    BrowserModule,
+    SimpleNotificationsModule.forRoot(),
+    BrowserAnimationsModule
   ],
   exports: [TablerIconsModule],
   bootstrap: [AppComponent],

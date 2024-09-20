@@ -1,5 +1,6 @@
 import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+
 import {
   ApexChart,
   ChartComponent,
@@ -124,7 +125,7 @@ export class AppDashboardComponent {
   displayedColumns: string[] = ['id', 'location', 'description', 'severity', 'status', 'dateOfAccident'];
   dataSource = ACCIDENT_DATA;
 
-  constructor(private router: Router) {
+  constructor(private router: Router,) {
     // Accident overview chart
     this.accidentOverviewChart = {
       series: [

@@ -15,6 +15,7 @@ import { AppReportAccidentPage } from './report-accident/report-accident.compone
 import { DROPZONE_CONFIG, DropzoneConfigInterface, DropzoneModule } from 'ngx-dropzone-wrapper';
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
 
+
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
    url: 'https://httpbin.org/post',
@@ -30,7 +31,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     FormsModule,
     ReactiveFormsModule,
     TablerIconsModule.pick(TablerIcons),
-    DropzoneModule
+    DropzoneModule,
+   
   ],
   providers: [
     {
@@ -42,7 +44,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     AppIconsComponent,
     AppSamplePageComponent,
     AppReportAccidentPage,
-    AppAccidentReportsComponent
+    AppAccidentReportsComponent,
+   
   ],
 })
 export class ExtraModule {}

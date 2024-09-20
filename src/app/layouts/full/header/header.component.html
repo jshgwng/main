@@ -9,15 +9,15 @@
   <!-- Notification Dropdown -->
   <!-- --------------------------------------------------------------- -->
 
-  <button mat-icon-button aria-label="Notifications">
+  <button (click)="notify('Accident on masaka road')" mat-icon-button aria-label="Notifications">
     <i-tabler
       class="d-flex"
       name="bell"
       matBadge="1"
       matBadgeColor="primary"
-    ></i-tabler>
+    ></i-tabler>Accident on masaka road
   </button>
-
+  <simple-notifications></simple-notifications>
   <span class="flex-1-auto"></span>
 
   <!-- --------------------------------------------------------------- -->

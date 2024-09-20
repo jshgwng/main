@@ -1,3 +1,4 @@
+import { animate } from '@angular/animations';
 import {
   Component,
   Output,
@@ -6,7 +7,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
+import { NotificationsService } from 'angular2-notifications';
+import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -22,5 +24,9 @@ export class HeaderComponent {
 
   showFiller = false;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog,private service:NotificationsService) {}
+  notify(message: any){
+     this.service.alert('New Accident',message,{position:['bottom','right'],timeout:2000,animate:'fade',showProgressBar:true})
+
+  }
 }
