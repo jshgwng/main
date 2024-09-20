@@ -98,7 +98,7 @@
       <mat-form-field appearance="outline" class="w-100" color="primary">
         <input matInput />
       </mat-form-field>
-      <a [routerLink]="['/']" mat-flat-button color="primary" class="w-100">
+      <a (click)="notify('Accident on masaka road...')"[routerLink]="['/dashboard']" mat-flat-button color="primary" class="w-100">
         Submit
       </a>
     </form>

@@ -4,7 +4,7 @@ import { map, Observable, startWith } from 'rxjs';
 import { OPTIONS } from './data';
 import { provideNativeDateAdapter } from '@angular/material/core';
 import { DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
-
+import { NotificationsService } from 'angular2-notifications';
 interface ListObject {
   value: string;
   viewValue: string;
@@ -49,8 +49,11 @@ export class AppReportAccidentPage implements OnInit {
   ];
   config: DropzoneConfigInterface | undefined;
 
-  constructor() {}
+  constructor(private service:NotificationsService) {}
+  notify(message: any){
+    this.service.alert('New Accident',message,{position:['top','right'],timeout:200,animate:'fade',showProgressBar:true})
 
+ }
   ngOnInit(): void {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),

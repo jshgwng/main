@@ -26,7 +26,7 @@ export class HeaderComponent {
 
   constructor(public dialog: MatDialog,private service:NotificationsService) {}
   notify(message: any){
-     this.service.alert('New Accident',message,{position:['bottom','right'],timeout:2000,animate:'fade',showProgressBar:true})
+     this.service.alert('New Accident',message,{position:['top','right'],timeout:200,animate:'fade',showProgressBar:true})
 
   }
 }
