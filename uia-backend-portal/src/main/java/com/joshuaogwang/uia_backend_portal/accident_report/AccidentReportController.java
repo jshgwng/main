@@ -23,8 +23,8 @@ public class AccidentReportController {
         return ResponseEntity.ok(accidentReportService.getAccidentReports());
     }
 
-//    @GetMapping("/{userId}")
-//    public ResponseEntity<List<AccidentReport>> getUserAccidentReports() throws Exception {
-//        return ResponseEntity.ok(accidentReportService.getUserAccidentReports());
-//    }
+    @GetMapping("/user-accident-reports")
+    public ResponseEntity<List<AccidentReport>> getUserAccidentReports(@RequestParam("username") String username){
+        return ResponseEntity.ok(accidentReportService.getUserAccidentReports(username));
+    }
 }

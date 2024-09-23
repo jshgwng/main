@@ -5,9 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -47,9 +45,13 @@ public class AccidentReportService {
 
     public List<AccidentReport> getAccidentReports() throws Exception {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.getAuthorities().stream().noneMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))){
+        if (authentication.getAuthorities().stream().noneMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))) {
             throw new Exception("Access Denied");
         }
         return accidentReportRepository.findAll();
+    }
+
+    public List<AccidentReport> getUserAccidentReports(String username) {
+        return accidentReportRepository.findByCreatedBy(username);
     }
 }
