@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/accident-reports")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequiredArgsConstructor
 public class AccidentReportController {
     private final AccidentReportService accidentReportService;
@@ -19,6 +20,11 @@ public class AccidentReportController {
 
     @GetMapping
     public ResponseEntity<List<AccidentReport>> getAccidentReports() throws Exception {
+        return ResponseEntity.ok(accidentReportService.getAccidentReports());
+    }
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<List<AccidentReport>> getUserAccidentReports() throws Exception {
         return ResponseEntity.ok(accidentReportService.getAccidentReports());
     }
 }

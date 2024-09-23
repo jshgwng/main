@@ -28,8 +28,16 @@ public class AuthenticationService {
                 .build();
         userRepository.save(user);
         var jwtToken = jwtService.generateToken(user);
+        var userResponse = UserResponse
+                .builder()
+                .id(user.getId())
+                .fullName(user.getFullName())
+                .email(user.getEmail())
+                .role(user.getRole())
+                .build();
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .userResponse(userResponse)
                 .build();
     }
 
@@ -41,8 +49,16 @@ public class AuthenticationService {
         );
         var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
         var jwtToken = jwtService.generateToken(user);
+        var userResponse = UserResponse
+                .builder()
+                .id(user.getId())
+                .fullName(user.getFullName())
+                .email(user.getEmail())
+                .role(user.getRole())
+                .build();
         return AuthenticationResponse.builder()
                 .token(jwtToken)
+                .userResponse(userResponse)
                 .build();
     }
 }
