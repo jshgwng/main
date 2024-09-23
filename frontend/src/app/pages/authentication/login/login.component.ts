@@ -18,11 +18,11 @@ export class AppSideLoginComponent {
     const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjY2MDY3NCwiZXhwIjoxNzI2NjY0Mjc0fQ.NlDeyABjHVg9NsnKjMUbyGoqX1pj9lAPYAh4nq_aam0'; 
 
     const headers = new HttpHeaders({
-      'X-Auth-Token': token,
+    
       'Content-Type': 'application/json'
     });
     
-    this.http.post('http://localhost:5000/api/auth/login', this.loginObj, { headers, observe: 'response' })
+    this.http.post('http://localhost:8080/api/v1/auth/login', this.loginObj, { headers, observe: 'response' })
       .subscribe(
         (res: any) => {
           // Check if status code is 200
