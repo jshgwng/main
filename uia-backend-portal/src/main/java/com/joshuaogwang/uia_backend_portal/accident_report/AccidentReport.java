@@ -1,5 +1,6 @@
 package com.joshuaogwang.uia_backend_portal.accident_report;
 
+import com.joshuaogwang.uia_backend_portal.audit.BaseEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,7 +15,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "accident_reports")
-public class AccidentReport {
+public class AccidentReport extends BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;

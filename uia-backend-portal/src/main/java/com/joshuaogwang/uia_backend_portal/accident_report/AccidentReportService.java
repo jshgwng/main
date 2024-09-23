@@ -37,11 +37,11 @@ public class AccidentReportService {
                 .nearestPolicyStation(accidentReportRequest.getNearestPolicyStation())
                 .fatalities(accidentReportRequest.getFatalities())
                 .build();
-        var submittedAccidentReport = accidentReportRepository.save(accidentReport);
+        accidentReportRepository.save(accidentReport);
         return AccidentReportResponse
                 .builder()
                 .message("Accident Report submitted successfully.")
-                .accidentReport(submittedAccidentReport)
+                .accidentReport(accidentReport)
                 .build();
     }
 

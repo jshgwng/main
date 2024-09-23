@@ -32,6 +32,7 @@ public class AuthenticationService {
                 .builder()
                 .id(user.getId())
                 .fullName(user.getFullName())
+                .phoneNumber(user.getPhoneNumber())
                 .email(user.getEmail())
                 .role(user.getRole())
                 .build();
