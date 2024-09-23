@@ -1,4 +1,6 @@
 package com.joshuaogwang.uia_backend_portal.accident_report;
 
-public interface AccidentReportRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface AccidentReportRepository extends JpaRepository<AccidentReport,Integer> {
 }
