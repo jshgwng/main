@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/uia_portal
-    username: 
-    password: ''
+    username: root
+    password: '0704073613'
   jpa:
     hibernate:
       ddl-auto: create-drop
