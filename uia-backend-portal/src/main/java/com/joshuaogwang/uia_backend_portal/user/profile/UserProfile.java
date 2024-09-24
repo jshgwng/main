@@ -1,5 +1,6 @@
 package com.joshuaogwang.uia_backend_portal.user.profile;
 
+import com.joshuaogwang.uia_backend_portal.audit.BaseEntity;
 import com.joshuaogwang.uia_backend_portal.user.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "user_profile")
-public class UserProfile {
+public class UserProfile extends BaseEntity {
     @Id
     @GeneratedValue
     private Integer id;
