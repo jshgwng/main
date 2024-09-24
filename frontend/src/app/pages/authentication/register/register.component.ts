@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class AppSideRegisterComponent {
   userRegistrationObj= new UserRegistration();
-  constructor(private http: HttpClient,private router: Router) {}
+  constructor(private service: NotificationsService,private http: HttpClient,private router: Router) {}
 
   form = new FormGroup({
     uname: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -29,19 +30,23 @@ export class AppSideRegisterComponent {
           // Check if status code is 200
           if (res.status === 200) {
             this.router.navigateByUrl('/authentication/login');
-            alert('Registration Success');
+            this.service.success('Registration Success!');
+          
           } else {
             // If not 200, print the response body
-            alert('Error: ' + JSON.stringify(res.body));
+            this.service.error(JSON.stringify(res.body));
+
           }
         },
         (error) => {
           console.error('There was an error!', error);
           // Display the error response body
           if (error.error) {
-            alert(error.error.message);
+
+            this.service.error(JSON.stringify(error.error.message));
           } else {
-            alert('An error occurred. Please try again.');
+            this.service.error(JSON.stringify('An error occurred. Please try again.'));
+            
           }
         }
       );

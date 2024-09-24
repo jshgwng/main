@@ -95,18 +95,7 @@ export class AppReportAccidentPage implements OnInit {
   
     // Check if dateOfAccident is valid
     let dateOfAccident: string | undefined;
-    // if (reportData.dateOfAccident) {
-    //   dateOfAccident = new Date(reportData.dateOfAccident).toISOString();
-    //   if (isNaN(Date.parse(dateOfAccident))) {
-    //     console.error('Invalid date value:', reportData.dateOfAccident);
-    //     this.notify('Invalid date. Please select a valid date.');
-    //     return;
-    //   }
-    // } else {
-    //   alert('Date of accident is required.')
-    //  // this.notify('');
-    //   return;
-    // }
+   
   
     // Prepare the data object
     const payload = {
@@ -136,12 +125,12 @@ export class AppReportAccidentPage implements OnInit {
       })
     }).subscribe(
       (response) => {
-        this.notify('Accident report submitted successfully!');
+        this.service.success('Accident report submitted successfully!');
         this.accidentForm.reset(); // Reset the form after submission
       },
       (error) => {
         console.error('Error submitting report:', error);
-        this.notify('Failed to submit report. Please try again.');
+        this.service.error('Failed to submit report. Please try again.');
       }
     );
   }

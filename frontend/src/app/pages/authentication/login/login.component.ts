@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class AppSideLoginComponent {
   loginObj: Login;
 
-  constructor(private http: HttpClient,private router:Router) {
+  constructor(private service: NotificationsService,private http: HttpClient,private router:Router) {
     this.loginObj = new Login();
   }
 
@@ -27,12 +28,13 @@ export class AppSideLoginComponent {
         (res: any) => {
           // Check if status code is 200
           if (res.status === 200) {
-            
+            this.service.success('Login Successfull')
             this.router.navigateByUrl('/dashboard')
            // alert('Login Success');
           } else {
             // If not 200, print the response body
-            alert('Error: ' + res.body.message);
+            this.service.error(res.body.message)
+           
 
           }
         },
@@ -43,7 +45,8 @@ export class AppSideLoginComponent {
             alert(error.error.message);
 
           } else {
-            alert('An error occurred. Please try again.');
+            this.service.error('An error occurred. Please try again.')
+           
           }
         }
       );
