@@ -6,6 +6,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -50,5 +52,11 @@ public class UserPolicyService {
             throw new Exception("Access Denied");
         }
         return userPolicyRepository.findAll();
+    }
+
+    public List<UserPolicy> getExpiringPolicies() {
+        LocalDate today = LocalDate.now();
+        LocalDate oneMonth = today.plusMonths(1);
+        return userPolicyRepository.findExpiringUserPolicies(today, oneMonth);
     }
 }
