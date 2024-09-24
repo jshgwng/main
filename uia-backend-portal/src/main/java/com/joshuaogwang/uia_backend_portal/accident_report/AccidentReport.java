@@ -1,6 +1,7 @@
 package com.joshuaogwang.uia_backend_portal.accident_report;
 
 import com.joshuaogwang.uia_backend_portal.audit.BaseEntity;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,6 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "accident_reports")
+@Schema(hidden = true)
 public class AccidentReport extends BaseEntity {
     @Id
     @GeneratedValue
@@ -38,4 +40,5 @@ public class AccidentReport extends BaseEntity {
     private String policyRefNo;
     private String nearestPolicyStation;
     private int fatalities;
+    private boolean isDeleted;
 }
