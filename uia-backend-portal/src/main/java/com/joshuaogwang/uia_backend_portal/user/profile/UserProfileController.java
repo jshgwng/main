@@ -32,6 +32,7 @@ public class UserProfileController {
     public ResponseEntity<?> editUserProfile(@RequestBody UserProfileRequest userProfileRequest, @RequestParam("userId") Integer userId) {
         try {
             UserProfileResponse userProfileResponse = userProfileService.editUserProfile(userProfileRequest,userId);
+            return ResponseEntity.ok(userProfileResponse);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
