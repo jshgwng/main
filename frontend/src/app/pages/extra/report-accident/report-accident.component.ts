@@ -95,12 +95,11 @@ export class AppReportAccidentPage implements OnInit {
   
     // Check if dateOfAccident is valid
     let dateOfAccident: string | undefined;
-   
   
     // Prepare the data object
     const payload = {
-      location: reportData.location,
-      vin: reportData.vin,
+      location: reportData.location ,
+      vin: reportData.vin ,
       model: reportData.model,
       yearOfManufacture: reportData.yearOfManufacture,
       engineCapacity: reportData.engineCapacity,
@@ -109,30 +108,41 @@ export class AppReportAccidentPage implements OnInit {
       severity: reportData.severity,
       status: reportData.status,
       dateOfAccident: dateOfAccident,
-      scenePhotographs: reportData.scenePhotographs, // Handle as needed
-      motorInsuranceStickerImg: reportData.motorInsuranceStickerImg, // Handle as needed
+      scenePhotographs: reportData.scenePhotographs, 
+      motorInsuranceStickerImg: reportData.motorInsuranceStickerImg, 
       insurer: reportData.insurer,
       claimRefNo: reportData.claimRefNo,
       policyRefNo: reportData.policyRefNo,
-      nearestPolicyStation: reportData.nearestPolicyStation, // Optional
+      nearestPolicyStation: reportData.nearestPolicyStation, 
       fatalities: reportData.fatalities,
     };
   
-    // Send the data through HTTP POST request
+    // Retrieve the token from local storage
+    const token = localStorage.getItem('token');
+    
+    if (!token) {
+      this.service.error('Auth token not found.');
+      return;
+    }
+  
+    // Send the data through HTTP POST request with Bearer token
     this.http.post('http://localhost:8080/api/v1/accident-reports', payload, {
       headers: new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`  // Add the Bearer token here
       })
     }).subscribe(
       (response) => {
-        this.service.success('Accident report submitted successfully!');
+        this.service.success('submitted successfully!');
         this.accidentForm.reset(); // Reset the form after submission
       },
       (error) => {
         console.error('Error submitting report:', error);
-        this.service.error('Failed to submit report. Please try again.');
+        this.service.error('Failed to submit.');
       }
     );
   }
+  
+  
   
 }
