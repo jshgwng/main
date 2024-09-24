@@ -1,8 +1,5 @@
 package com.joshuaogwang.uia_backend_portal.user.profile;
 
-import com.joshuaogwang.uia_backend_portal.audit.BaseEntity;
-import com.joshuaogwang.uia_backend_portal.user.User;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,14 +9,9 @@ import java.util.Date;
 
 @Data
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "user_profile")
-public class UserProfile extends BaseEntity {
-    @Id
-    @GeneratedValue
-    private Integer id;
+@NoArgsConstructor
+public class UserProfileRequest {
     private Date dateOfBirth;
     private String languagePreference;
     private String theme;
@@ -32,9 +24,5 @@ public class UserProfile extends BaseEntity {
     private String state;
     private String country;
     private String postalCode;
-    @Lob
     private String bio;
-    @OneToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private User user;
 }
