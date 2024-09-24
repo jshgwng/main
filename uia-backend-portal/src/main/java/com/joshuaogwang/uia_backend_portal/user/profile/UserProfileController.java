@@ -19,4 +19,8 @@ public class UserProfileController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
+    @GetMapping
+    public ResponseEntity<UserProfileResponse> getUserProfile(@RequestParam("userId") Integer userId){
+        return ResponseEntity.ok(userProfileService.getUserProfile(userId));
+    }
 }

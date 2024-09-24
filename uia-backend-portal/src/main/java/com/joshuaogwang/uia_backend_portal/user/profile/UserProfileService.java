@@ -30,4 +30,10 @@ public class UserProfileService {
         userProfileRepository.save(userProfile);
         return UserProfileResponse.builder().userProfile(userProfile).user(user).build();
     }
+
+    public UserProfileResponse getUserProfile(Integer userId) {
+        var user = userRepository.findById(userId).orElseThrow();
+        var userProfile = userProfileRepository.findByUserId(userId).orElseThrow();
+        return UserProfileResponse.builder().userProfile(userProfile).user(user).build();
+    }
 }
