@@ -2,6 +2,7 @@ package com.joshuaogwang.uia_backend_portal.user.profile;
 
 import com.joshuaogwang.uia_backend_portal.audit.BaseEntity;
 import com.joshuaogwang.uia_backend_portal.user.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -16,6 +17,7 @@ import java.util.Date;
 @AllArgsConstructor
 @Entity
 @Table(name = "user_profile")
+@Schema(hidden = true)
 public class UserProfile extends BaseEntity {
     @Id
     @GeneratedValue
