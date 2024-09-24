@@ -54,4 +54,14 @@ public class AccidentReportService {
     public List<AccidentReport> getUserAccidentReports(String username) {
         return accidentReportRepository.findByCreatedBy(username);
     }
+
+    public AccidentReportResponse changeAccidentReportStatus(Integer accidentReportId, String status) {
+        var accidentReport = accidentReportRepository.findById(accidentReportId).orElseThrow();
+        accidentReport.setStatus(status);
+        accidentReportRepository.save(accidentReport);
+        return AccidentReportResponse.builder()
+                .accidentReport(accidentReport)
+                .message("Accident Report updated")
+                .build();
+    }
 }

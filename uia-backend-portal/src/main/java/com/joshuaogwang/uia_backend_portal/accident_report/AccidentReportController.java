@@ -33,4 +33,14 @@ public class AccidentReportController {
     public ResponseEntity<List<AccidentReport>> getUserAccidentReports(@RequestParam("username") String username) {
         return ResponseEntity.ok(accidentReportService.getUserAccidentReports(username));
     }
+
+    @PostMapping("/change-status")
+    public ResponseEntity<?> changeAccidentReportStatus(@RequestParam("status") String status,@RequestParam("accidentReportId") Integer accidentReportId){
+        try{
+            AccidentReportResponse accidentReportResponse = accidentReportService.changeAccidentReportStatus(accidentReportId,status);
+            return ResponseEntity.ok(accidentReportResponse);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
 }
