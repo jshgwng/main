@@ -36,4 +36,23 @@ public class UserProfileService {
         var userProfile = userProfileRepository.findByUserId(userId).orElseThrow();
         return UserProfileResponse.builder().userProfile(userProfile).user(user).build();
     }
+
+    public UserProfileResponse editUserProfile(UserProfileRequest userProfileRequest, Integer userId) {
+        var userProfile = userProfileRepository.findByUserId(userId).orElseThrow();
+        userProfile.setDateOfBirth(userProfileRequest.getDateOfBirth());
+        userProfile.setLanguagePreference(userProfileRequest.getLanguagePreference());
+        userProfile.setTheme(userProfileRequest.getTheme());
+        userProfile.setNotificationSettings(userProfile.getNotificationSettings());
+        userProfile.setSocialLinks(userProfile.getSocialLinks());
+        userProfile.setProfilePictureUrl(userProfile.getProfilePictureUrl());
+        userProfile.setAddressLine1(userProfile.getAddressLine1());
+        userProfile.setAddressLine2(userProfile.getAddressLine2());
+        userProfile.setCity(userProfileRequest.getCity());
+        userProfile.setState(userProfileRequest.getState());
+        userProfile.setCountry(userProfile.getCountry());
+        userProfile.setPostalCode(userProfile.getPostalCode());
+        userProfile.setBio(userProfile.getBio());
+        userProfileRepository.save(userProfile);
+        return UserProfileResponse.builder().userProfile(userProfile).build();
+    }
 }
