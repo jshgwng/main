@@ -6,7 +6,6 @@ import com.joshuaogwang.uia_backend_portal.policy.UserPolicyService;
 import com.joshuaogwang.uia_backend_portal.user.User;
 import com.joshuaogwang.uia_backend_portal.user.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +14,8 @@ import java.util.List;
 @Component
 @RequiredArgsConstructor
 public class ExpiryScheduler {
-    @Autowired
     private final UserPolicyService userPolicyService;
-    @Autowired
     private final NotificationService notificationService;
-    @Autowired
     private final UserRepository userRepository;
 
     @Scheduled(cron = "0 13 16 * * ?")
