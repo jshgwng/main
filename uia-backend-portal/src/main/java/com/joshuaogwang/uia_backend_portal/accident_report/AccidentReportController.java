@@ -1,6 +1,7 @@
 package com.joshuaogwang.uia_backend_portal.accident_report;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,8 +15,13 @@ public class AccidentReportController {
     private final AccidentReportService accidentReportService;
 
     @PostMapping
-    public ResponseEntity<AccidentReportResponse> submitAccidentReport(@RequestBody AccidentReportRequest accidentReportRequest) {
-        return ResponseEntity.ok(accidentReportService.submitAccidentReport(accidentReportRequest));
+    public ResponseEntity<?> submitAccidentReport(@RequestBody AccidentReportRequest accidentReportRequest) {
+        try {
+            AccidentReportResponse accidentReportResponse = accidentReportService.submitAccidentReport(accidentReportRequest);
+            return ResponseEntity.ok(accidentReportResponse);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @GetMapping
@@ -24,7 +30,7 @@ public class AccidentReportController {
     }
 
     @GetMapping("/user-accident-reports")
-    public ResponseEntity<List<AccidentReport>> getUserAccidentReports(@RequestParam("username") String username){
+    public ResponseEntity<List<AccidentReport>> getUserAccidentReports(@RequestParam("username") String username) {
         return ResponseEntity.ok(accidentReportService.getUserAccidentReports(username));
     }
 }
