@@ -3,7 +3,7 @@
     <mat-card-title>Accident Report Detail</mat-card-title>
     <div class="m-t-24" *ngIf="report; else noReport">
       <img
-        [src]="report.mediaUrl"
+        [src]="report.scenePhotographs"
         alt="Accident Image"
         class="img-fluid"
         style="width: 250px"
@@ -27,13 +27,13 @@
         {{ report.dateOfAccident | date : "dd/MM/yyyy" }}
       </p>
       <p class="mat-body-1 m-t-8">
-        <strong>Claim ID:</strong> {{ report.claimId || "N/A" }}
+        <strong>Claim ID:</strong> {{ report.claimRefNo || "N/A" }}
       </p>
       <p class="mat-body-1 m-t-8">
         <strong>Insurer:</strong> {{ report.insurer || "N/A" }}
       </p>
       <p class="mat-body-1 m-t-8">
-        <strong>Policy ID:</strong> {{ report.policyId || "N/A" }}
+        <strong>Policy ID:</strong> {{ report.policyRefNo || "N/A" }}
       </p>
 
       <button
