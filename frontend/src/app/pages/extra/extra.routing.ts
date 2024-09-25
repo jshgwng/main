@@ -7,6 +7,7 @@ import { AppReportAccidentPage } from './report-accident/report-accident.compone
 import { AppAccidentReportsComponent } from './accident-reports/accident-reports.component';
 import { AppReportDetailComponent } from './report-detail/report-detail.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AppUserPolicyComponent } from './user-policy/user-policy.component';
 
 export const ExtraRoutes: Routes = [
   {
@@ -35,6 +36,10 @@ export const ExtraRoutes: Routes = [
       {
         path: 'profile',  
         component: UserProfileComponent,
+      },
+      {
+        path: 'user-policy',  
+        component: AppUserPolicyComponent,
       },
     ],
   },

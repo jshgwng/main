@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UserPolicyResponse {
     private String message;
-    private UserPolicy userPolicy;
+    private UserPolicyDTO userPolicyDTO;
 }

@@ -26,12 +26,12 @@ public class UserPolicyController {
     }
 
     @GetMapping
-    public ResponseEntity<List<UserPolicy>> fetchUserPolicies(@RequestParam("userId") Integer userId){
+    public ResponseEntity<List<UserPolicyDTO>> fetchUserPolicies(@RequestParam("userId") Integer userId){
         return ResponseEntity.ok(userPolicyService.fetchUserPolicies(userId));
     }
 
     @GetMapping("/all")
-    public ResponseEntity<List<UserPolicy>> fetchAllUserPolicies() throws Exception {
+    public ResponseEntity<List<UserPolicyDTO>> fetchAllUserPolicies() throws Exception {
         return ResponseEntity.ok(userPolicyService.fetchAllUserPolicies());
     }
 }
