@@ -34,7 +34,7 @@ import { UserProfileComponent } from '../extra/user-profile/user-profile.compone
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    TablerIconsModule.pick(TablerIcons),
+    TablerIconsModule.pick(TablerIcons)
   ],
   declarations: [
     AppSideLoginComponent,
