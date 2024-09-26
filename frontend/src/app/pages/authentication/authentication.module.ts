@@ -20,6 +20,7 @@ import { AuthenticationRoutes } from './authentication.routing';
 import { AppSideLoginComponent } from './login/login.component';
 import { AppSideRegisterComponent } from './register/register.component';
 import { UserProfileComponent } from '../extra/user-profile/user-profile.component'; // Import UserProfileComponent
+import { SimpleNotificationsComponent } from 'angular2-notifications';
 
 @NgModule({
   imports: [
