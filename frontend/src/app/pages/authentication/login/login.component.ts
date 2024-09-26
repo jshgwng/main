@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { LoginResponse } from 'src/models/login-response.models';
+
 
 @Component({
   selector: 'app-login',
@@ -10,52 +12,56 @@ import { NotificationsService } from 'angular2-notifications';
 export class AppSideLoginComponent {
   loginObj: Login;
 
-  constructor(private service: NotificationsService,private http: HttpClient,private router:Router) {
+  constructor(private service: NotificationsService, private http: HttpClient, private router: Router) {
     this.loginObj = new Login();
   }
 
-  onLogin() {
-    
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTcyNjY2MDY3NCwiZXhwIjoxNzI2NjY0Mjc0fQ.NlDeyABjHVg9NsnKjMUbyGoqX1pj9lAPYAh4nq_aam0'; 
-
-    const headers = new HttpHeaders({
-    
-      'Content-Type': 'application/json'
+  notify(message: any) {
+    this.service.error('error', message, {
+      position: ['top', 'right'],
+      timeout: 200,
+      animate: 'fade',
+      showProgressBar: true,
     });
-    
-    this.http.post('http://localhost:8080/api/v1/auth/login', this.loginObj, { headers, observe: 'response' })
+  }
+
+  onLogin() {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+
+    this.http.post<LoginResponse>('http://localhost:8080/api/v1/auth/login', this.loginObj, { headers, observe: 'response' })
       .subscribe(
         (res: any) => {
-          // Check if status code is 200
           if (res.status === 200) {
-            this.service.success('Login Successfull')
-            this.router.navigateByUrl('/dashboard')
-           // alert('Login Success');
-          } else {
-            // If not 200, print the response body
-            this.service.error(res.body.message)
-           
+            const loginResponse: LoginResponse = res.body; // Access the response body and cast it to LoginResponse
 
+            // Save the token and user details to localStorage
+            localStorage.setItem('token', loginResponse.token);
+            localStorage.setItem('user', JSON.stringify(loginResponse.userResponse));
+
+            this.service.success('Login Successful');
+            this.router.navigateByUrl('/dashboard');
+          } else {
+            this.notify(res.status);
           }
         },
         (error) => {
           console.error('There was an error!', error);
-          // Display the error response body
           if (error.error) {
-            alert(error.error.message);
-
+            this.notify(error.error.message);
           } else {
-            this.service.error('An error occurred. Please try again.')
-           
+            this.service.error('An error occurred. Please try again.');
           }
         }
       );
-    }}    
+  }
+}
 
 export class Login {
   email: string;
   password: string;
-  
+
   constructor() {
     this.email = '';
     this.password = '';
