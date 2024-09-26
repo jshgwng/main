@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { AuthenticationService } from '../authentication.service';
+import { LoginResponse } from 'src/models/login-response.models';
+
 
 @Component({
   selector: 'app-login',
@@ -13,6 +15,15 @@ export class AppSideLoginComponent {
 
   constructor(private service: NotificationsService,private http: HttpClient,private router:Router,private authService: AuthenticationService) {
     this.loginObj = new Login();
+  }
+
+  notify(message: any) {
+    this.service.error('error', message, {
+      position: ['top', 'right'],
+      timeout: 200,
+      animate: 'fade',
+      showProgressBar: true,
+    });
   }
 
   onLogin() {
@@ -73,7 +84,7 @@ export class AppSideLoginComponent {
 export class Login {
   email: string;
   password: string;
-  
+
   constructor() {
     this.email = '';
     this.password = '';
