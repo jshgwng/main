@@ -10,8 +10,13 @@ import { AuthenticationService } from '../authentication.service';
   templateUrl: './register.component.html',
 })
 export class AppSideRegisterComponent {
-  userRegistrationObj= new UserRegistration();
-  constructor(private service: NotificationsService,private http: HttpClient,private router: Router,private authService: AuthenticationService) {}
+  userRegistrationObj = new UserRegistration();
+  constructor(
+    private service: NotificationsService,
+    private http: HttpClient,
+    private router: Router,
+    private authService: AuthenticationService
+  ) {}
 
   form = new FormGroup({
     uname: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -23,10 +28,13 @@ export class AppSideRegisterComponent {
     return this.form.controls;
   }
 
-
   onSignUp() {
-    authenticationModel = new AuthenticationModel();
-this.authService.signUp()
+    this.authService.signUp(
+      this.userRegistrationObj.fullName,
+      this.userRegistrationObj.email,
+      this.userRegistrationObj.phoneNumber,
+      this.userRegistrationObj.phoneNumber
+    );
     // this.http.post('http://localhost:8080/api/v1/auth/register', this.userRegistrationObj, { observe: 'response' })
     //   .subscribe(
     //     (res: any) => {
@@ -34,7 +42,7 @@ this.authService.signUp()
     //       if (res.status === 200) {
     //         this.router.navigateByUrl('/authentication/login');
     //         this.service.success('Registration Success!');
-          
+
     //       } else {
     //         // If not 200, print the response body
     //         this.service.error(JSON.stringify(res.body));
@@ -49,12 +57,12 @@ this.authService.signUp()
     //         this.service.error(JSON.stringify(error.error.message));
     //       } else {
     //         this.service.error(JSON.stringify('An error occurred. Please try again.'));
-            
+
     //       }
     //     }
     //   );
   }
-  
+
   submit() {
     // console.log(this.form.value);
     this.router.navigate(['/dashboard']);
