@@ -25,11 +25,11 @@ public class AuthenticationController {
 
     @PostMapping("/login")
     public ResponseEntity<?> register(@RequestBody LoginRequest request) {
-        try {
+//        try {
             AuthenticationResponse authenticationResponse = authenticationService.login(request);
             return ResponseEntity.ok(authenticationResponse);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+//        }
     }
 }

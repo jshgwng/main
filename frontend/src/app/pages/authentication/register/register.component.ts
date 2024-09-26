@@ -34,7 +34,7 @@ export class AppSideRegisterComponent {
         this.userRegistrationObj.fullName,
         this.userRegistrationObj.email,
         this.userRegistrationObj.phoneNumber,
-        this.userRegistrationObj.phoneNumber
+        this.userRegistrationObj.password
       )
       .subscribe(
         (res) => {

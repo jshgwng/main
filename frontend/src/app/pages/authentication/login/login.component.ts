@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { NotificationsService } from 'angular2-notifications';
 export class AppSideLoginComponent {
   loginObj: Login;
 
-  constructor(private service: NotificationsService,private http: HttpClient,private router:Router) {
+  constructor(private service: NotificationsService,private http: HttpClient,private router:Router,private authService: AuthenticationService) {
     this.loginObj = new Login();
   }
 
@@ -22,34 +23,51 @@ export class AppSideLoginComponent {
     
       'Content-Type': 'application/json'
     });
+
+    this.authService
+    .login(
+      this.loginObj.email,
+      this.loginObj.password
+    )
+    .subscribe(
+      (res) => {
+        console.log(res);
+        this.router.navigateByUrl('/dashboard');
+        this.service.success('Login Success!');
+      },
+      (error) => {
+        console.log(error.error);
+        this.service.error(error.error.details)
+      }
+    );
     
-    this.http.post('http://localhost:8080/api/v1/auth/login', this.loginObj, { headers, observe: 'response' })
-      .subscribe(
-        (res: any) => {
-          // Check if status code is 200
-          if (res.status === 200) {
-            this.service.success('Login Successfull')
-            this.router.navigateByUrl('/dashboard')
-           // alert('Login Success');
-          } else {
-            // If not 200, print the response body
-            this.service.error(res.body.message)
+    // this.http.post('http://localhost:8080/api/v1/auth/login', this.loginObj, { headers, observe: 'response' })
+    //   .subscribe(
+    //     (res: any) => {
+    //       // Check if status code is 200
+    //       if (res.status === 200) {
+    //         this.service.success('Login Successfull')
+    //         this.router.navigateByUrl('/dashboard')
+    //        // alert('Login Success');
+    //       } else {
+    //         // If not 200, print the response body
+    //         this.service.error(res.body.message)
            
 
-          }
-        },
-        (error) => {
-          console.error('There was an error!', error);
-          // Display the error response body
-          if (error.error) {
-            alert(error.error.message);
+    //       }
+    //     },
+    //     (error) => {
+    //       console.error('There was an error!', error);
+    //       // Display the error response body
+    //       if (error.error) {
+    //         alert(error.error.message);
 
-          } else {
-            this.service.error('An error occurred. Please try again.')
+    //       } else {
+    //         this.service.error('An error occurred. Please try again.')
            
-          }
-        }
-      );
+    //       }
+    //     }
+    //   );
     }}    
 
 export class Login {

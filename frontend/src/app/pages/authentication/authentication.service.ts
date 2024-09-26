@@ -33,4 +33,16 @@ export class AuthenticationService {
       }
     );
   }
+  login(
+    email: string,
+    password: string
+  ) {
+    return this.http.post<AuthenticationResponse>(
+      'http://localhost:8080/api/v1/auth/login',
+      {
+        email: email,
+        password: password,
+      }
+    );
+  }
 }
