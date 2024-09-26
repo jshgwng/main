@@ -17,14 +17,19 @@ interface AuthenticationResponse {
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   constructor(private http: HttpClient) {}
-  signUp(registrationObj: AuthenticationModel) {
+  signUp(
+    fullName: string,
+    email: string,
+    phoneNumber: string,
+    password: string
+  ) {
     return this.http.post<AuthenticationResponse>(
       'http://localhost:8080/api/v1/auth/register',
       {
-        fullName: registrationObj.fullName,
-        email: registrationObj.email,
-        phoneNumber: registrationObj.phoneNumber,
-        password: registrationObj.password,
+        fullName: fullName,
+        email: email,
+        phoneNumber: phoneNumber,
+        password: password,
       }
     );
   }
