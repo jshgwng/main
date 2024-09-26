@@ -45,10 +45,7 @@ export class AppSideRegisterComponent {
           this.router.navigateByUrl('/authentication/login');
           this.service.success('Registration Success!');
         },
-        (error) => {
-          console.log(error.error);
-          this.service.error(error.error.details)
-        }
+       
       );
     // this.http.post('http://localhost:8080/api/v1/auth/register', this.userRegistrationObj, { observe: 'response' })
     //   .subscribe(
