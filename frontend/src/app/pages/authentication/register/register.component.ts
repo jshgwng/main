@@ -39,9 +39,6 @@ export class AppSideRegisterComponent {
       .subscribe(
         (res) => {
           console.log(res);
-        },
-        (error) => {
-          console.log(error);
           this.router.navigateByUrl('/authentication/login');
           this.service.success('Registration Success!');
         },
