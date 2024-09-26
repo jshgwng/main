@@ -19,6 +19,7 @@ import { AccidentReportDialogComponent } from './report-detail/accident-report-d
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
+import { AppUserPolicyComponent } from './user-policy/user-policy.component';
 
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
@@ -54,6 +55,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     AppAccidentReportsComponent,
     AppReportDetailComponent,
     UserProfileComponent,
+    AppUserPolicyComponent
   ],
 })
 export class ExtraModule {}
