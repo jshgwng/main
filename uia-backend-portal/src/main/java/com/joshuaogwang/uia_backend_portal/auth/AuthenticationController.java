@@ -2,6 +2,7 @@ package com.joshuaogwang.uia_backend_portal.auth;
 
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,15 +13,14 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Authentication")
 public class AuthenticationController {
     private final AuthenticationService authenticationService;
-
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
-        try {
+//        try {
             AuthenticationResponse authenticationResponse = authenticationService.register(request);
             return ResponseEntity.ok(authenticationResponse);
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
-        }
+//        } catch (Exception e) {
+//            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+//        }
     }
 
     @PostMapping("/login")

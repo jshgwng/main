@@ -29,12 +29,21 @@ export class AppSideRegisterComponent {
   }
 
   onSignUp() {
-    this.authService.signUp(
-      this.userRegistrationObj.fullName,
-      this.userRegistrationObj.email,
-      this.userRegistrationObj.phoneNumber,
-      this.userRegistrationObj.phoneNumber
-    );
+    this.authService
+      .signUp(
+        this.userRegistrationObj.fullName,
+        this.userRegistrationObj.email,
+        this.userRegistrationObj.phoneNumber,
+        this.userRegistrationObj.phoneNumber
+      )
+      .subscribe(
+        (res) => {
+          console.log(res);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     // this.http.post('http://localhost:8080/api/v1/auth/register', this.userRegistrationObj, { observe: 'response' })
     //   .subscribe(
     //     (res: any) => {
