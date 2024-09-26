@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { NotificationsService } from 'angular2-notifications';
 import { AuthenticationService } from '../authentication.service';
 import { LoginResponse } from 'src/models/login-response.models';
+import { Subject, tap } from 'rxjs';
+import { User } from '../user.model';
 
 
 @Component({
@@ -12,7 +14,7 @@ import { LoginResponse } from 'src/models/login-response.models';
 })
 export class AppSideLoginComponent {
   loginObj: Login;
-
+  user = new Subject<User>();
   constructor(private service: NotificationsService,private http: HttpClient,private router:Router,private authService: AuthenticationService) {
     this.loginObj = new Login();
   }

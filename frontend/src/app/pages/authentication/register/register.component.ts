@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NotificationsService } from 'angular2-notifications';
 import { AuthenticationService } from '../authentication.service';
+import { User } from '../user.model';
+import { Subject, tap } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -11,6 +13,7 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class AppSideRegisterComponent {
   userRegistrationObj = new UserRegistration();
+  user = new Subject<User>();
   constructor(
     private service: NotificationsService,
     private http: HttpClient,

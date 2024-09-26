@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthenticationModel } from './authentication.model';
+import { Subject, tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface User {
   id: number;
@@ -11,32 +13,31 @@ interface User {
 }
 
 interface AuthenticationResponse {
-  token: String;
+  token: string;
   user: User;
 }
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private router:Router) {}
   signUp(
     fullName: string,
     email: string,
     phoneNumber: string,
     password: string
   ) {
-    return this.http.post<AuthenticationResponse>(
-      'http://localhost:8080/api/v1/auth/register',
-      {
-        fullName: fullName,
-        email: email,
-        phoneNumber: phoneNumber,
-        password: password,
-      }
-    );
+    return this.http
+      .post<AuthenticationResponse>(
+        'http://localhost:8080/api/v1/auth/register',
+        {
+          fullName: fullName,
+          email: email,
+          phoneNumber: phoneNumber,
+          password: password,
+        }
+      )
   }
-  login(
-    email: string,
-    password: string
-  ) {
+  login(email: string, password: string) {
     return this.http.post<AuthenticationResponse>(
       'http://localhost:8080/api/v1/auth/login',
       {
