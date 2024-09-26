@@ -14,7 +14,7 @@ interface User {
 
 interface AuthenticationResponse {
   token: string;
-  user: User;
+  userResponse: User;
 }
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {

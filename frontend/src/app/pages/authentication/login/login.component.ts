@@ -44,8 +44,14 @@ export class AppSideLoginComponent {
     )
     .subscribe(
       (res) => {
-        console.log(res);
-        this.router.navigateByUrl('/dashboard');
+        // console.log(res);
+        localStorage.setItem("token",res.token);
+        localStorage.setItem("user",JSON.stringify(res.userResponse))
+        localStorage.setItem("role",JSON.stringify(res.userResponse.role))
+        if(res.userResponse.role === "ADMIN"){
+          this.router.navigateByUrl('/dashboard');
+        }
+        this.router.navigateByUrl('//extra/report-accident');
         this.service.success('Login Success!');
       },
       (error) => {

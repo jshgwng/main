@@ -31,15 +31,16 @@ export class AppAccidentReportsComponent implements OnInit {
     const role = user.userResponse?.role;
     // Construct the URL based on the user role
     let url = 'http://localhost:8080/api/v1/accident-reports';
-    if (role === 'ADMIN') {
-      url += `?username=${email}`; // Append email if user is ADMIN
-    }
+    // if (role === 'ADMIN') {
+    //   url += `?username=${email}`; // Append email if user is ADMIN
+    // }
     this.http.get<AccidentReport[]>(url,{ headers })
       .pipe(
         catchError(this.handleError) 
       )
       .subscribe({
         next: (data) => {
+          console.log(data)
           this.dataSource = data.map(report => ({
             createdBy: report.createdBy,
             createdDate: report.createdDate,

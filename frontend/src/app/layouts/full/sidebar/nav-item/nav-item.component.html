@@ -1,4 +1,5 @@
-<div mat-subheader *ngIf="item.navCap" class="nav-caption">
+<ng-container *ngIf="shouldShowItem(item)">
+<div mat-subheader *ngIf="item.navCap" class="nav-caption" >
   {{ item.navCap }}
 </div>
 <a
@@ -19,3 +20,4 @@
   ></i-tabler>
   <span class="hide-menu">{{ item.displayName }}</span>
 </a>
+</ng-container>

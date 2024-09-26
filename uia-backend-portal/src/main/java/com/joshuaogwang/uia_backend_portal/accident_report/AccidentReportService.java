@@ -45,10 +45,10 @@ public class AccidentReportService {
     }
 
     public List<AccidentReport> getAccidentReports() throws Exception {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.getAuthorities().stream().noneMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))) {
-            throw new Exception("Access Denied");
-        }
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication.getAuthorities().stream().noneMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))) {
+//            throw new Exception("Access Denied");
+//        }
         return accidentReportRepository.findAllByIsDeletedFalse();
     }
 

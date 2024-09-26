@@ -11,11 +11,13 @@ import { NavService } from '../../../../services/nav.service';
 export class AppNavItemComponent implements OnChanges {
   @Input() item: NavItem | any;
   @Input() depth: any;
-
+  role = localStorage.getItem("role")?.replace(/"/g, '');
+  isAdmin: boolean;
   constructor(public navService: NavService, public router: Router) {
     if (this.depth === undefined) {
       this.depth = 0;
     }
+    this.isAdmin = this.role === 'ADMIN';
   }
 
   ngOnChanges() {
@@ -23,6 +25,13 @@ export class AppNavItemComponent implements OnChanges {
       if (this.item.route && url) {
       }
     });
+  }
+
+  shouldShowItem(item: NavItem): boolean {
+    if (item.isAdmin === undefined) {
+      return true; // Show the item if isAdmin is not specified
+    }
+    return item.isAdmin === this.isAdmin;
   }
 
   onItemSelected(item: NavItem) {

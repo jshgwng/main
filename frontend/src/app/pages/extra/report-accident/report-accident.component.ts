@@ -19,6 +19,12 @@ interface ListObject {
   providers: [provideNativeDateAdapter()],
 })
 export class AppReportAccidentPage implements OnInit {
+onUploadError($event: any) {
+throw new Error('Method not implemented.');
+}
+onUploadSuccess($event: any) {
+throw new Error('Method not implemented.');
+}
   myControl = new FormControl('');
   options: string[] = OPTIONS;
   filteredOptions: Observable<string[]> | undefined;

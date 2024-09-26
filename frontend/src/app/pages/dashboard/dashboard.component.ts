@@ -151,6 +151,7 @@ export interface accidentOverviewChart {
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
+  styleUrl:'./dashboard.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
 export class AppDashboardComponent implements OnInit{
@@ -253,9 +254,9 @@ export class AppDashboardComponent implements OnInit{
       ],
     };
   }
+  role = localStorage.getItem("role")?.replace(/"/g, '');
   ngOnInit() {
-    const token = localStorage.getItem('token');
-    console.log(token)
+console.log(this.role?.replace(/"/g, ''))
   }
 
   viewDetails(report: AccidentReport) {
