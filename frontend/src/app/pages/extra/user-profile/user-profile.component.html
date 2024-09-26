@@ -43,7 +43,6 @@
     </div>
 
     <mat-divider></mat-divider>
-
     <h3>Insurance Information</h3>
     <div class="info-grid">
       <div class="info-item">
@@ -58,6 +57,11 @@
       </div>
       <div class="info-item">
         <i class="fas fa-calendar-alt icon"></i>
+        <h4>Start Date</h4>
+        <p>{{ user.insurance.startDate | date:'longDate' }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt icon"></i>
         <h4>Expiration Date</h4>
         <p>{{ user.insurance.expirationDate | date:'longDate' }}</p>
       </div>
@@ -67,15 +71,51 @@
         <p>{{ user.insurance.type }}</p>
       </div>
       <div class="info-item">
+        <i class="fas fa-shield-alt icon"></i>
+        <h4>Status</h4>
+        <p>{{ user.insurance.status }}</p>
+      </div>
+      <div class="info-item">
         <i class="fas fa-money-bill-wave icon"></i>
         <h4>Coverage Amount</h4>
-        <p>{{ user.insurance.coverageAmount }}</p>
+        <p>{{ user.insurance.coverageAmount | currency }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-money-check-alt icon"></i>
+        <h4>Premium</h4>
+        <p>{{ user.insurance.premium | currency }}</p>
       </div>
       <div class="info-item">
         <i class="fas fa-phone-volume icon"></i>
         <h4>Provider Contact</h4>
         <p>{{ user.insurance.providerContact }}</p>
       </div>
+
+      <!-- Car Information starts here -->
+      <mat-divider></mat-divider>
+
+      <h3>Car Information</h3>
+      <div class="info-item">
+        <i class="fas fa-car icon"></i>
+        <h4>Registration Number</h4>
+        <p>{{ user.car.registrationNumber }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-car-side icon"></i>
+        <h4>Make</h4>
+        <p>{{ user.car.make }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-car-side icon"></i>
+        <h4>Model</h4>
+        <p>{{ user.car.model }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt icon"></i>
+        <h4>Year</h4>
+        <p>{{ user.car.year }}</p>
+      </div>
+      <!-- Car Information ends here -->
     </div>
 
     <mat-divider></mat-divider>
