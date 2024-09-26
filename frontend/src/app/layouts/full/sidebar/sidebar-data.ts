@@ -73,9 +73,9 @@ export const navItems: NavItem[] = [
     iconName: 'aperture',
     route: '/extra/accident-reports',
   },
-  {
-    displayName: 'User Policies',
-    iconName: 'aperture',
-    route: '/extra/user-policy',
-  },
+  // {
+  //   displayName: 'User Policies',
+  //   iconName: 'aperture',
+  //   route: '/extra/user-policy',
+  // },
 ];
