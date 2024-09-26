@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, ViewChild } from '@angular/core';
+import { Component, ViewEncapsulation, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import {
@@ -153,7 +153,7 @@ export interface accidentOverviewChart {
   templateUrl: './dashboard.component.html',
   encapsulation: ViewEncapsulation.None,
 })
-export class AppDashboardComponent {
+export class AppDashboardComponent implements OnInit{
   @ViewChild('chart') chart: ChartComponent = Object.create(null);
 
   public accidentOverviewChart!: Partial<accidentOverviewChart> | any;
@@ -252,6 +252,10 @@ export class AppDashboardComponent {
         },
       ],
     };
+  }
+  ngOnInit() {
+    const token = localStorage.getItem('token');
+    console.log(token)
   }
 
   viewDetails(report: AccidentReport) {
