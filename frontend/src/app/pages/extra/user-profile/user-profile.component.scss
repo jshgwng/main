@@ -1,67 +1,121 @@
-mat-card {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 16px;
-    border-radius: 10px;
-  
-    // Header style with background
-    mat-card-header {
-      background-color: #f5f5f5;
-      border-radius: 4px;
-      padding: 10px;
-  
-      // Avatar/Icon style
-      mat-icon {
-        font-size: 40px;
-        color: #3f51b5;
-      }
+.profile-card {
+  max-width: 800px; /* Width of the profile card */
+  margin: 20px auto; /* Centers the card on the page */
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+
+  mat-card-header {
+    background-color: #f5f5f5; /* Light background for the header */
+    border-radius: 4px;
+    padding: 10px;
+
+    mat-card-avatar {
+      display: flex;
+      align-items: center;
     }
-  
-    // Content section styling
-    mat-card-content {
-      margin-top: 16px;
-  
-      h3 {
-        margin-bottom: 10px;
-        color: #3f51b5;
-        font-weight: bold;
-      }
-  
-      mat-list {
-        margin-bottom: 16px;
-        
-        mat-list-item {
-          mat-icon {
-            color: #3f51b5;
-          }
-  
-          h4 {
-            font-size: 16px;
-            font-weight: 500;
-          }
-  
-          p {
-            font-size: 14px;
-            color: #666;
-          }
+
+    .profile-image {
+      width: 45px; /* Reduced size for the profile image */
+      height: 45px;
+      border-radius: 50%; /* Makes the image circular */
+      object-fit: cover; /* Ensures the image covers the entire area */
+      border: 2px solid #3f51b5; /* Adds a border around the image */
+    }
+  }
+
+  mat-card-content {
+    margin-top: 16px;
+
+    h3 {
+      color: #3f51b5; /* Header color */
+      margin-bottom: 15px; /* Space below headers */
+      padding-bottom: 5px; /* Space below header text */
+    }
+
+    .info-grid {
+      display: grid; /* Enable grid layout */
+      grid-template-columns: repeat(2, 1fr); /* Two columns for information items */
+      gap: 30px; /* Increased space between items for better separation */
+      margin-bottom: 20px; /* Space below the grid */
+
+      .info-item {
+        background-color: #f9f9f9; /* Light background for each item */
+        padding: 15px; /* Increased padding for info items */
+        border-radius: 4px; /* Slight rounding of corners */
+        display: flex; /* Use flexbox for inner content */
+        align-items: center;
+
+        mat-icon {
+          font-size: 30px; /* Icon size */
+          color: #3f51b5; /* Icon color */
+          margin-right: 15px; /* Space between icon and text */
+        }
+
+        h4 {
+          font-size: 16px;
+          font-weight: 500; /* Slightly bold for headers */
+          color: #333; /* Header color */
+          margin: 0; /* Remove default margin */
+          padding-bottom: 5px; /* Space below header */
+        }
+
+        p {
+          font-size: 14px;
+          color: #666; /* Text color */
+          margin: 0; /* Remove default margin */
+          padding-left: 5px; /* Space to the left of paragraph text */
         }
       }
     }
-  
-    // Action buttons
-    mat-card-actions {
-      display: flex;
-      justify-content: flex-end;
-      button {
-        margin-left: 10px;
+
+    .car-info-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* Two columns for car information items */
+      gap: 30px; /* Increased space between car info items */
+      margin-bottom: 20px;
+
+      .car-info-item {
+        background-color: #f9f9f9;
+        padding: 15px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+
+        mat-icon {
+          font-size: 30px;
+          color: #3f51b5;
+          margin-right: 15px;
+        }
+
+        h4 {
+          font-size: 16px;
+          font-weight: 500;
+          color: #333;
+          margin: 0;
+          padding-bottom: 5px;
+        }
+
+        p {
+          font-size: 14px;
+          color: #666;
+          margin: 0;
+          padding-left: 5px;
+        }
       }
     }
   }
-  .profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
+
+  mat-card-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    button {
+      margin-left: 10px; /* Space between buttons */
+      transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+
+      &:hover {
+        background-color: #e0e0e0; /* Change background on hover */
+      }
+    }
   }
-  
-  
+}

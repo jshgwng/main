@@ -1,18 +1,11 @@
 <mat-card class="cardWithShadow">
   <mat-card-content>
     <mat-card-title>Report Accident</mat-card-title>
-    <!-- <mat-card-subtitle class="mat-body-1">This is test page</mat-card-subtitle> -->
-    <form class="m-t-30">
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Location *</mat-label
-      >
+    <form [formGroup]="accidentForm" class="m-t-30"> <!-- Bind the form to accidentForm -->
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Location *</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input
-          type="text"
-          matInput
-          [matAutocomplete]="auto"
-          placeholder="Select an option"
-        />
+        <input type="text" matInput [matAutocomplete]="auto" formControlName="location"
+          placeholder="Select an option" />
         <mat-autocomplete #auto="matAutocomplete">
           <mat-option *ngFor="let option of options" [value]="option">
             {{ option }}
@@ -20,134 +13,104 @@
         </mat-autocomplete>
       </mat-form-field>
 
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >VIN *</mat-label
-      >
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">VIN *</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
-      </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Model *</mat-label
-      >
-      <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
-      </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Year of Manufacture *</mat-label
-      >
-      <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
-      </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Engine Capacity *</mat-label
-      >
-      <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
-      </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Registration No. *</mat-label
-      >
-      <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
+        <input matInput formControlName="vin" /> <!-- Bind to FormControl -->
       </mat-form-field>
 
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Description *</mat-label
-      >
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Model *</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <textarea matInput></textarea>
+        <input matInput formControlName="model" /> <!-- Bind to FormControl -->
       </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Severity *</mat-label
-      >
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Year of Manufacture *</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <mat-select>
-          @for (severity of severities; track severity) {
-          <mat-option [value]="severity.value">{{
-            severity.viewValue
-          }}</mat-option>
-          }
-        </mat-select>
+        <input matInput formControlName="yearOfManufacture" /> <!-- Bind to FormControl -->
       </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Status *</mat-label
-      >
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Engine Capacity *</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <!-- <mat-label>Status *</mat-label> -->
-        <mat-select>
-          @for (status of statuses; track status) {
-          <mat-option [value]="status.value">{{ status.viewValue }}</mat-option>
-          }
+        <input matInput formControlName="engineCapacity" /> <!-- Bind to FormControl -->
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Registration No. *</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <input matInput formControlName="registrationNo" /> <!-- Bind to FormControl -->
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Description *</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <textarea matInput formControlName="description"></textarea> <!-- Bind to FormControl -->
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Severity *</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <mat-select formControlName="severity"> <!-- Bind to FormControl -->
+          <mat-option *ngFor="let severity of severities" [value]="severity.value">
+            {{ severity.viewValue }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Date of Accident *</mat-label
-      >
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Status *</mat-label>
+      <mat-form-field appearance="outline" class="w-100" color="primary">
+        <mat-select formControlName="status"> <!-- Bind to FormControl -->
+          <mat-option *ngFor="let status of statuses" [value]="status.value">
+            {{ status.viewValue }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Date of Accident *</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
         <mat-label>Choose a date</mat-label>
-        <input matInput [matDatepicker]="picker" />
+        <input matInput [matDatepicker]="picker" formControlName="dateOfAccident" /> <!-- Bind to FormControl -->
         <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle
-          matIconSuffix
-          [for]="picker"
-        ></mat-datepicker-toggle>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Upload file *</mat-label
-      >
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Upload file *</mat-label>
 
-      <!-- <dropzone
+      <dropzone
         class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
         [config]="config"
         [message]="'Click or drag images here to upload'"
         (error)="onUploadError($event)"
         (success)="onUploadSuccess($event)"
-      ></dropzone> -->
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Insurer</mat-label
-      >
+      ></dropzone>
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Insurer</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <mat-select>
-          @for (insurer of insurers; track insurer) {
-          <mat-option [value]="insurer.value">{{
-            insurer.viewValue
-          }}</mat-option>
-          }
+        <mat-select formControlName="insurer"> <!-- Bind to FormControl -->
+          <mat-option *ngFor="let insurer of insurers" [value]="insurer.value">
+            {{ insurer.viewValue }}
+          </mat-option>
         </mat-select>
       </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Claim Reference No</mat-label
-      >
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Claim Reference No</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
+        <input matInput formControlName="claimRefNo" /> <!-- Bind to FormControl -->
       </mat-form-field>
+
       <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Nearest Police Station</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
+        <input matInput formControlName="nearestPolicyStation" /> <!-- Bind to FormControl -->
       </mat-form-field>
 
       <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Fatalities</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input type="number" matInput />
+        <input type="number" matInput formControlName="fatalities" /> <!-- Bind to FormControl -->
       </mat-form-field>
-      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block"
-        >Policy Reference No</mat-label
-      >
+
+      <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Policy Reference No</mat-label>
       <mat-form-field appearance="outline" class="w-100" color="primary">
-        <input matInput />
+        <input matInput formControlName="policyRefNo" /> <!-- Bind to FormControl -->
       </mat-form-field>
-      <a
-      (click)="submitReport()"
-      mat-flat-button
-      color="primary"
-      class="w-100"
-    >
-      Submit
-    </a>
-    
+
+      <a (click)="submitReport()" mat-flat-button color="primary" class="w-100">
+        Submit
+      </a>
     </form>
   </mat-card-content>
 </mat-card>

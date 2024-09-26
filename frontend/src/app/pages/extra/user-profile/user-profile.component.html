@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card class="profile-card">
   <mat-card-header>
     <div mat-card-avatar>
       <img [src]="user.profilePhoto" class="profile-image" alt="Profile Photo" />
@@ -9,42 +9,135 @@
 
   <mat-card-content>
     <h3>Personal Information</h3>
-    <mat-list>
-      <mat-list-item>
-        <mat-icon matListIcon>phone</mat-icon>
-        <h4 matLine>Phone</h4>
-        <p matLine>{{ user.phone }}</p>  <!-- Check if this displays -->
-      </mat-list-item>
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-phone-alt icon"></i>
+        <h4>Phone</h4>
+        <p>{{ user.phone }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-home icon"></i>
+        <h4>Address</h4>
+        <p>{{ user.address }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-birthday-cake icon"></i>
+        <h4>Date of Birth</h4>
+        <p>{{ user.dob | date:'longDate' }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-venus-mars icon"></i>
+        <h4>Gender</h4>
+        <p>{{ user.gender }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-briefcase icon"></i>
+        <h4>Occupation</h4>
+        <p>{{ user.occupation }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-user-friends icon"></i>
+        <h4>Marital Status</h4>
+        <p>{{ user.maritalStatus }}</p>
+      </div>
+    </div>
 
-      <mat-list-item>
-        <mat-icon matListIcon>home</mat-icon>
-        <h4 matLine>Address</h4>
-        <p matLine>{{ user.address }}</p>  <!-- Check if this displays -->
-      </mat-list-item>
-    </mat-list>
+    <mat-divider></mat-divider>
+    <h3>Insurance Information</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-shield-alt icon"></i>
+        <h4>Provider</h4>
+        <p>{{ user.insurance.provider }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-id-card icon"></i>
+        <h4>Policy Number</h4>
+        <p>{{ user.insurance.policyNumber }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt icon"></i>
+        <h4>Start Date</h4>
+        <p>{{ user.insurance.startDate | date:'longDate' }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt icon"></i>
+        <h4>Expiration Date</h4>
+        <p>{{ user.insurance.expirationDate | date:'longDate' }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-tag icon"></i>
+        <h4>Type</h4>
+        <p>{{ user.insurance.type }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-shield-alt icon"></i>
+        <h4>Status</h4>
+        <p>{{ user.insurance.status }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-money-bill-wave icon"></i>
+        <h4>Coverage Amount</h4>
+        <p>{{ user.insurance.coverageAmount | currency }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-money-check-alt icon"></i>
+        <h4>Premium</h4>
+        <p>{{ user.insurance.premium | currency }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone-volume icon"></i>
+        <h4>Provider Contact</h4>
+        <p>{{ user.insurance.providerContact }}</p>
+      </div>
+
+      <!-- Car Information starts here -->
+      <mat-divider></mat-divider>
+
+      <h3>Car Information</h3>
+      <div class="info-item">
+        <i class="fas fa-car icon"></i>
+        <h4>Registration Number</h4>
+        <p>{{ user.car.registrationNumber }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-car-side icon"></i>
+        <h4>Make</h4>
+        <p>{{ user.car.make }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-car-side icon"></i>
+        <h4>Model</h4>
+        <p>{{ user.car.model }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-calendar-alt icon"></i>
+        <h4>Year</h4>
+        <p>{{ user.car.year }}</p>
+      </div>
+      <!-- Car Information ends here -->
+    </div>
 
     <mat-divider></mat-divider>
 
-    <h3>Insurance Information</h3>
-    <mat-list>
-      <mat-list-item>
-        <mat-icon matListIcon>assignment</mat-icon>
-        <h4 matLine>Provider</h4>
-        <p matLine>{{ user.insurance.provider }}</p>  <!-- Check if this displays -->
-      </mat-list-item>
-
-      <mat-list-item>
-        <mat-icon matListIcon>description</mat-icon>
-        <h4 matLine>Policy Number</h4>
-        <p matLine>{{ user.insurance.policyNumber }}</p>  <!-- Check if this displays -->
-      </mat-list-item>
-
-      <mat-list-item>
-        <mat-icon matListIcon>event</mat-icon>
-        <h4 matLine>Expiration Date</h4>
-        <p matLine>{{ user.insurance.expirationDate }}</p>  <!-- Check if this displays -->
-      </mat-list-item>
-    </mat-list>
+    <h3>Emergency Contact</h3>
+    <div class="info-grid">
+      <div class="info-item">
+        <i class="fas fa-address-book icon"></i>
+        <h4>Name</h4>
+        <p>{{ user.emergencyContact.name }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-user-circle icon"></i>
+        <h4>Relationship</h4>
+        <p>{{ user.emergencyContact.relationship }}</p>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-phone-alt icon"></i>
+        <h4>Phone</h4>
+        <p>{{ user.emergencyContact.phone }}</p>
+      </div>
+    </div>
   </mat-card-content>
 
   <mat-card-actions>

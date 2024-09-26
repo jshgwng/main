@@ -8,6 +8,7 @@ export const navItems: NavItem[] = [
     displayName: 'Dashboard',
     iconName: 'layout-dashboard',
     route: '/dashboard',
+    isAdmin: true
   },
   // {
   //   navCap: 'Ui Components',
@@ -67,10 +68,17 @@ export const navItems: NavItem[] = [
     displayName: 'Report Accident',
     iconName: 'aperture',
     route: '/extra/report-accident',
+    isAdmin: false
   },
   {
     displayName: 'Accident Reports',
     iconName: 'aperture',
     route: '/extra/accident-reports',
+    isAdmin:true
   },
+  // {
+  //   displayName: 'User Policies',
+  //   iconName: 'aperture',
+  //   route: '/extra/user-policy',
+  // },
 ];

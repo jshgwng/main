@@ -7,6 +7,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -44,14 +45,34 @@ public class AccidentReportService {
     }
 
     public List<AccidentReport> getAccidentReports() throws Exception {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (authentication.getAuthorities().stream().noneMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))) {
-            throw new Exception("Access Denied");
-        }
-        return accidentReportRepository.findAll();
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//        if (authentication.getAuthorities().stream().noneMatch(grantedAuthority -> grantedAuthority.getAuthority().equals("ADMIN"))) {
+//            throw new Exception("Access Denied");
+//        }
+        return accidentReportRepository.findAllByIsDeletedFalse();
     }
 
     public List<AccidentReport> getUserAccidentReports(String username) {
-        return accidentReportRepository.findByCreatedBy(username);
+        return accidentReportRepository.findByCreatedByAndIsDeletedIsFalse(username);
+    }
+
+    public AccidentReportResponse changeAccidentReportStatus(Integer accidentReportId, String status) {
+        var accidentReport = accidentReportRepository.findById(accidentReportId).orElseThrow();
+        accidentReport.setStatus(status);
+        accidentReportRepository.save(accidentReport);
+        return AccidentReportResponse.builder()
+                .accidentReport(accidentReport)
+                .message("Accident Report updated")
+                .build();
+    }
+
+    public String deleteAccidentReport(Integer accidentReportId) throws Exception {
+        var accidentReport = accidentReportRepository.findById(accidentReportId).orElseThrow();
+        if (!Objects.equals(accidentReport.getStatus(), "pending")) {
+            throw new Exception("Report is already under review");
+        }
+        accidentReport.setDeleted(true);
+        accidentReportRepository.save(accidentReport);
+        return "Reported has been deleted " + accidentReport.getId();
     }
 }

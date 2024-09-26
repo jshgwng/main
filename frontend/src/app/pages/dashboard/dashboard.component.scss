@@ -1,0 +1,49 @@
+.page-header-card {
+    border-radius: 5px;
+    padding: 1rem;
+    margin: 1rem 0;
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      li {
+        margin: 1rem 2rem 0 0;
+        a {
+          text-decoration: none;
+          color: black;
+        }
+      }
+      li:first-child {
+        list-style: none;
+      }
+    }
+  }
+  .card-items{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px; 
+    .card-item{
+      width: 350px;
+      height: 100px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      p{
+        font-weight: 900;
+      }
+    }
+  }
+  .policy-table{
+  margin-top: 1rem;
+  max-width: 1200px;
+  .button {
+    margin-left: 100%;
+  }
+  }
